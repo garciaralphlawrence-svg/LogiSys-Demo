@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<title>Logi-Sys Growth Dashboard</title>
+<meta name="description" content="Website, Google search and demo-request analytics for Logi-Sys, with AI summaries.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/img/icon.png" type="image/png">
+<meta name="theme-color" content="#0b1a33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dash.css?v=1">
+</head>
+<body>
+<div class="concept">Concept prototype by <strong>Likha Studio</strong> for Logi-Sys<span class="long">&nbsp;&middot; dashboard preview</span>&nbsp;&middot; sample data</div>
+
+<div class="app">
+  <aside class="side" id="side">
+    <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Logi-Sys" width="130" height="32"></a>
+    <nav aria-label="Dashboard">
+      <a href="#briefing" class="on"><i class="ic">◎</i>Briefing</a>
+      <a href="#traffic"><i class="ic">↗</i>Website &amp; Google</a>
+      <a href="#keywords"><i class="ic">#</i>Search rankings</a>
+      <a href="#leads"><i class="ic">✉</i>Demo requests</a>
+      <a href="#asklogi"><i class="ic">?</i>What prospects ask</a>
+      <a href="#health"><i class="ic">✓</i>Site health</a>
+      <a href="#sources"><i class="ic">⇄</i>Connections</a>
+    </nav>
+    <a href="index.html" class="back">← Back to website</a>
+  </aside>
+
+  <main class="main">
+    <header class="top">
+      <div>
+        <h1>Growth Dashboard</h1>
+        <p class="sub">How logi-sys.com turns Google searches into demo requests. <span id="updated"></span></p>
+      </div>
+      <div class="ctrls">
+        <div class="seg" role="group" aria-label="Period">
+          <button data-p="30" class="on">30 days</button><button data-p="90">90 days</button>
+        </div>
+        <select id="country" aria-label="Country">
+          <option value="all">All countries</option>
+          <option value="PH">Philippines</option><option value="IN">India</option><option value="AE">UAE</option><option value="SG">Singapore</option><option value="US">USA</option><option value="MY">Malaysia</option>
+        </select>
+      </div>
+    </header>
+
+    <section class="briefing card dark" id="briefing">
+      <div class="b-head"><span class="ai-badge">AI briefing</span><small>Written from this period's numbers</small></div>
+      <p class="b-main" id="bMain"></p>
+      <ul class="b-list" id="bList"></ul>
+    </section>
+
+    <section class="kpis" id="kpis"></section>
+
+    <section class="grid2" id="traffic">
+      <div class="card">
+        <div class="c-head"><div><h2>Visitors and demo requests</h2><p>Weekly. Bars are visitors, the line is demo requests.</p></div>
+          <div class="legend"><span><i class="sw g"></i>From Google</span><span><i class="sw o"></i>Other</span><span><i class="sw l"></i>Demo requests</span></div></div>
+        <svg id="chTraffic" viewBox="0 0 720 280" role="img" aria-label="Weekly visitors and demo requests"></svg>
+      </div>
+      <div class="card">
+        <div class="c-head"><div><h2>From visit to customer</h2><p>Where people drop off.</p></div></div>
+        <div class="funnel" id="funnel"></div>
+      </div>
+    </section>
+
+    <section class="card" id="keywords">
+      <div class="c-head"><div><h2>Google search rankings</h2><p>Position on Google for the keywords we target. 1–10 means first page.</p></div>
+        <div class="kw-sum" id="kwSum"></div></div>
+      <div class="tbl-wrap"><table class="tbl" id="kwTbl">
+        <thead><tr><th>Keyword</th><th>Searches / mo</th><th>Position</th><th>Change</th><th>Trend</th><th>Page</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </section>
+
+    <section class="grid2" id="leads">
+      <div class="card">
+        <div class="c-head"><div><h2>Latest demo requests</h2><p>From the website form and the Ask Logi assistant.</p></div></div>
+        <div class="tbl-wrap"><table class="tbl" id="leadTbl">
+          <thead><tr><th>Company</th><th>Country</th><th>Interested in</th><th>Came from</th><th>Status</th></tr></thead>
+          <tbody></tbody>
+        </table></div>
+      </div>
+      <div class="card">
+        <div class="c-head"><div><h2>Demo requests by country</h2><p id="ctryNote"></p></div></div>
+        <div class="bars" id="ctryBars"></div>
+        <div class="c-head" style="margin-top:22px"><div><h2>Where they came from</h2></div></div>
+        <div class="donut-wrap"><svg id="donut" viewBox="0 0 120 120" aria-hidden="true"></svg><ul id="srcList"></ul></div>
+      </div>
+    </section>
+
+    <section class="grid2" id="asklogi">
+      <div class="card">
+        <div class="c-head"><div><h2>What prospects ask Ask Logi</h2><p>Topics from AI assistant chats. Use these for new pages and sales answers.</p></div></div>
+        <div class="bars topics" id="topics"></div>
+      </div>
+      <div class="card">
+        <div class="c-head"><div><h2>Ask your dashboard</h2><p>Questions answered by AI from the numbers above.</p></div></div>
+        <div class="chips" id="askChips">
+          <button>Which keyword should we work on next?</button>
+          <button>Why did demo requests go up?</button>
+          <button>Which country should sales focus on?</button>
+          <button>What content should we write this month?</button>
+        </div>
+        <div class="answer" id="askA"><span class="muted">Pick a question.</span></div>
+      </div>
+    </section>
+
+    <section class="grid3" id="health">
+      <div class="card gauge-card"><h2>Page speed (mobile)</h2><svg class="gauge" viewBox="0 0 120 70" id="g1"></svg><p>Old Wix site: <b>38</b>. New site: <b>96</b>.</p></div>
+      <div class="card gauge-card"><h2>SEO health</h2><svg class="gauge" viewBox="0 0 120 70" id="g2"></svg><p>0 broken pages, 0 duplicate pages, all pages with titles and descriptions.</p></div>
+      <div class="card"><h2>Pages on Google</h2>
+        <ul class="checks">
+          <li><b>84</b> pages indexed by Google</li>
+          <li><b>0</b> errors in Search Console</li>
+          <li><b>143</b> old Wix links redirected, no rankings lost</li>
+          <li><b>12</b> new articles this quarter</li>
+        </ul></div>
+    </section>
+
+    <section class="card" id="sources">
+      <div class="c-head"><div><h2>Connections</h2><p>Where this dashboard gets its numbers. Updated automatically every hour.</p></div></div>
+      <div class="srcs">
+        <div class="src ok"><b>Google Search Console</b><span>Rankings, clicks, pages on Google</span><em>Connected</em></div>
+        <div class="src ok"><b>Google Analytics 4</b><span>Visitors, sources, demo requests</span><em>Connected</em></div>
+        <div class="src ok"><b>Ask Logi assistant</b><span>Chats, topics, leads captured</span><em>Connected</em></div>
+        <div class="src ok"><b>Demo request form</b><span>Leads with modules and country</span><em>Connected</em></div>
+        <div class="src api"><b>Logi-Sys API</b><span>Which demo requests became paying customers, and from which keyword</span><em>Ready to connect</em></div>
+      </div>
+      <div class="api-note">
+        <b>How the Logi-Sys connection works.</b> Logi-Sys has no public API, but it owns the system. Your developers give this dashboard one read-only endpoint (for example <code>GET /api/crm/deals?since=…</code>) or a daily export. The dashboard then shows the full path from <i>Google keyword → website visit → demo → signed customer</i>, so you see which keywords actually bring revenue.
+      </div>
+    </section>
+
+    <p class="foot">Prepared by Likha Studio. All numbers on this page are sample data for the preview.</p>
+  </main>
+</div>
+
+<script src="dash.js?v=1"></script>
+</body>
+</html>
