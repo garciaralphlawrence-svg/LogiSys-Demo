@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto: https:">
+<title>Logi-Sys · Freight Forwarding &amp; Logistics ERP Software</title>
+<meta name="description" content="Logi-Sys is the cloud ERP for freight forwarders, customs brokers and consolidators: sea and air freight, customs, warehouse, transport, billing, accounting and AI in one platform. BOC e2m compliant, built for the Philippines.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/img/icon.png" type="image/png">
+<meta name="theme-color" content="#0b1a33">
+<meta property="og:title" content="Logi-Sys · The Digital Backbone of Global Logistics">
+<meta property="og:description" content="One system. One database. One truth. Cloud ERP for freight forwarders.">
+<meta property="og:image" content="assets/img/s-containers.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"SoftwareApplication","name":"Logi-Sys","applicationCategory":"BusinessApplication","operatingSystem":"Web browser (cloud)","description":"All-in-one cloud ERP for freight forwarding, customs, warehouse, transport, billing, accounting and sales & CRM."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is Logi-Sys compliant with Philippine customs (BOC)?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is 100% compliant with BOC e2m requirements, ensuring seamless customs workflows."}},
+{"@type":"Question","name":"Does it support PEZA or Freeport operations?","acceptedAnswer":{"@type":"Answer","text":"Yes. It includes built-in features for PEZA, Freeport, and bonded operations."}},
+{"@type":"Question","name":"Can small freight companies use Logi-Sys?","acceptedAnswer":{"@type":"Answer","text":"Definitely. The system scales to suit startups, SMEs, and large enterprises alike."}},
+{"@type":"Question","name":"Do I need to install any hardware?","acceptedAnswer":{"@type":"Answer","text":"No. Logi-Sys is a cloud-based freight management system, no servers or maintenance needed."}}]}
+]}
+</script>
+</head>
+<body>
+
+<div class="concept" role="note">Concept prototype by <strong>Likha Studio</strong> for Logi-Sys<span class="long">&nbsp;&middot; not the official website</span>&nbsp;&middot; sample data</div>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand" aria-label="Logi-Sys home"><img src="assets/img/logo.png" alt="Logi-Sys" width="150" height="37"></a>
+  <nav class="links" aria-label="Main">
+    <a href="#platform">Platform</a>
+    <a href="#ai">AI</a>
+    <a href="#ph">Philippines</a>
+    <a href="#gain">ROI</a>
+    <a href="#finder">Modules</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <div class="nav-cta">
+    <button class="btn ghost sm" data-open-chat>Ask Logi</button>
+    <a href="#demo" class="btn sm">Book a Demo</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+<div class="mnav" id="mnav">
+  <a href="#platform">Platform</a><a href="#ai">AI tools</a><a href="#ph">Philippines</a><a href="#gain">ROI calculator</a><a href="#finder">Module finder</a><a href="#faq">FAQ</a><a href="#demo">Book a Demo</a>
+</div>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="routes" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <p class="kicker reveal">Cloud ERP for freight forwarders, customs brokers &amp; consolidators</p>
+    <h1 class="split">The Digital Backbone<br>of Global Logistics</h1>
+    <p class="lede reveal">Logi-Sys unifies freight operations, customs, warehouse, transport, billing, accounting, AI-powered intelligence and ecosystem connectivity into one global logistics operating platform.</p>
+    <div class="hero-cta reveal">
+      <a href="#demo" class="btn lg">Book a Demo</a>
+      <a href="#ai" class="btn ghost lg light">See the AI at work</a>
+    </div>
+  </div>
+  <div class="ticker" aria-label="Sample live shipment events">
+    <span class="tk-label"><i></i>Live view &middot; sample</span>
+    <div class="tk-track"><div class="tk-row" id="tkRow"></div></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat reveal"><b data-count="50">0</b><span>%</span><p>Less manual work</p></div>
+  <div class="stat reveal"><b data-count="3">0</b><span>X</span><p>Faster documentation</p></div>
+  <div class="stat reveal"><b data-count="100">0</b><span>%</span><p>Operational visibility</p></div>
+  <div class="stat reveal"><b data-count="30">0</b><span>+</span><p>Years of global expertise</p></div>
+</section>
+
+<!-- PLATFORM -->
+<section class="platform" id="platform">
+  <div class="sec-head">
+    <h2 class="split">One system. One database. One truth.</h2>
+    <p class="reveal">Everything you need to run and grow your logistics business on one integrated platform.</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar-list" role="tablist" aria-label="Platform pillars">
+      <button class="pl on" role="tab" aria-selected="true" data-p="0"><span>Operations</span><em>Manage end-to-end freight operations with speed, visibility and control.</em></button>
+      <button class="pl" role="tab" aria-selected="false" data-p="1"><span>Financial Control</span><em>Streamline billing, accounting, collections and profitability in real time.</em></button>
+      <button class="pl" role="tab" aria-selected="false" data-p="2"><span>Intelligence</span><em>Embeds AI into freight workflows for smarter decisions and automation.</em></button>
+      <button class="pl" role="tab" aria-selected="false" data-p="3"><span>Integration</span><em>Connect partners, systems and services across the global logistics ecosystem.</em></button>
+      <button class="pl" role="tab" aria-selected="false" data-p="4"><span>Governance</span><em>Ensure security, compliance and governance across entities and geographies.</em></button>
+    </div>
+    <div class="pillar-screen" aria-live="polite">
+      <div class="win">
+        <div class="win-bar"><i></i><i></i><i></i><span id="winTitle">Operations &middot; Job board</span></div>
+        <div class="win-body" id="winBody"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI -->
+<section class="ai" id="ai">
+  <div class="sec-head light">
+    <p class="kicker reveal">Intelligence</p>
+    <h2 class="split">AI that does the paperwork, so your team moves freight.</h2>
+    <p class="reveal">Try the three Logi-Sys AI tools below. Everything runs on sample data in your browser.</p>
+  </div>
+  <div class="ai-tabs" role="tablist">
+    <button class="at on" data-t="lens" role="tab" aria-selected="true">LogiLENS <small>Reads documents</small></button>
+    <button class="at" data-t="track" role="tab" aria-selected="false">LogiTRACK <small>Tracks shipments</small></button>
+    <button class="at" data-t="brain" role="tab" aria-selected="false">LogiBRAIN <small>Explains your numbers</small></button>
+  </div>
+
+  <div class="ai-pane on" id="pane-lens">
+    <div class="lens">
+      <div class="doc">
+        <div class="doc-top">
+          <span>Pre-alert / Bill of Lading</span>
+          <select id="docPick" aria-label="Sample document">
+            <option value="0">Sample 1 &middot; Sea import, Shanghai → Manila</option>
+            <option value="1">Sample 2 &middot; Air export, Cebu → Tokyo</option>
+            <option value="2">Sample 3 &middot; Vendor invoice</option>
+          </select>
+        </div>
+        <textarea id="docText" spellcheck="false" aria-label="Document text"></textarea>
+        <div class="scanline" id="scanline"></div>
+        <p class="doc-hint">Paste your own pre-alert or invoice text to try it.</p>
+      </div>
+      <div class="lens-out">
+        <button class="btn lg" id="lensRun">Read with LogiLENS</button>
+        <div class="job" id="jobOut">
+          <div class="job-head"><b id="jobKind">New freight job</b><span id="jobConf"></span></div>
+          <div class="fields" id="fields"></div>
+          <p class="job-note" id="jobNote">Press the button to turn the document into a ready job, with no typing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ai-pane" id="pane-track">
+    <div class="track">
+      <div class="track-left">
+        <form id="trackForm" class="track-form">
+          <label for="trackNo">Tracking, BL or AWB number</label>
+          <div class="row"><input id="trackNo" value="LSMNL2611024" autocomplete="off"><button class="btn">Track</button></div>
+          <p class="try">Try: <button type="button" data-tn="LSMNL2611024">LSMNL2611024</button> <button type="button" data-tn="176-55120934">176-55120934</button> <button type="button" data-tn="LSDVO2611311">LSDVO2611311</button></p>
+        </form>
+        <div class="trk-card" id="trkCard"></div>
+      </div>
+      <div class="track-right">
+        <svg id="trkMap" viewBox="0 0 600 340" aria-hidden="true"></svg>
+        <ol class="miles" id="miles"></ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="ai-pane" id="pane-brain">
+    <div class="brain">
+      <div class="kpis" id="kpis"></div>
+      <div class="chart-card">
+        <div class="cc-head"><b>Shipments and profit per month</b><span>Sample branch data</span></div>
+        <svg id="chart" viewBox="0 0 640 260" role="img" aria-label="Shipments and profit chart"></svg>
+      </div>
+      <div class="insights">
+        <b>LogiBRAIN says</b>
+        <ul id="insights"></ul>
+        <div class="askbox">
+          <p>Ask your numbers:</p>
+          <div class="chips" id="brainQs">
+            <button>Which lane makes the most money?</button>
+            <button>Who pays late?</button>
+            <button>What will next month look like?</button>
+          </div>
+          <p class="answer" id="brainA"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILT FOR FREIGHT -->
+<section class="built">
+  <div class="built-img"><img src="assets/img/s-containers.webp" alt="Aerial view of a container port" loading="lazy" class="parallax"></div>
+  <div class="built-txt">
+    <h2 class="split">Built for the way freight works.</h2>
+    <p class="reveal">A modern cloud platform that scales with your network, connects to your partners and keeps every office working as one.</p>
+    <ul class="feats">
+      <li class="reveal"><b>Cloud-native</b>Access your system from any office, port or device.</li>
+      <li class="reveal"><b>Multi-entity ready</b>Run branches, companies and currencies together.</li>
+      <li class="reveal"><b>Local compliance</b>Adapts to tax and regulatory needs by country.</li>
+      <li class="reveal"><b>Real-time visibility</b>Live shipment status, milestones and alerts in one view.</li>
+      <li class="reveal"><b>Mobile access</b>Approve, track and update jobs on the go.</li>
+      <li class="reveal"><b>Secure by design</b>Role-based access and audit trails on every record.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- MODULES MARQUEE -->
+<div class="marquee" aria-hidden="true"><div class="mq" id="mq">
+  <span>Freight Forwarding</span><span>Invoicing</span><span>Financial Accounting</span><span>Sales &amp; CRM</span><span>Customs Compliance</span><span>Transportation Management</span><span>Warehouse Management</span><span>PO Management</span><span>Freight Station</span><span>LogiBRAIN</span><span>LogiTRACK</span><span>LogiLENS</span><span>LogiCONNECT</span>
+</div></div>
+
+<!-- PHILIPPINES -->
+<section class="ph" id="ph">
+  <div class="ph-txt">
+    <p class="kicker reveal">Freight forwarding software, Philippines</p>
+    <h2 class="split">Powering freight forwarders in the Philippines.</h2>
+    <p class="reveal">Logi-Sys combines 30+ years of global expertise with local customization, from Manila to Cebu to Davao.</p>
+    <div class="ph-grid">
+      <div class="reveal"><b>Archipelagic-Ready</b><p>Coordinate operations efficiently across Luzon, Visayas, and Mindanao using a unified logistics management system.</p></div>
+      <div class="reveal"><b>100% Cloud-Based ERP</b><p>No local servers required. A disaster-proof, browser-based freight software accessible from anywhere, anytime.</p></div>
+      <div class="reveal"><b>Built-in Compliance</b><p>Simplify audits and documentation with BOC e2m and PEZA-aligned processes.</p></div>
+      <div class="reveal"><b>Transparent Pricing Model</b><p>No hidden costs, no vendor lock-ins.</p></div>
+    </div>
+  </div>
+  <div class="ph-map">
+    <svg id="phMap" viewBox="0 0 300 420" role="img" aria-label="Logi-Sys hubs across Luzon, Visayas and Mindanao"></svg>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="gain" id="gain">
+  <div class="sec-head">
+    <h2 class="split">What freight forwarders gain with Logi-Sys.</h2>
+    <p class="reveal">Move the sliders to see the time and money your team gets back.</p>
+  </div>
+  <div class="roi">
+    <div class="roi-in">
+      <label>Shipments per month <output id="o1">300</output><input type="range" id="r1" min="20" max="3000" step="10" value="300"></label>
+      <label>Minutes of paperwork per shipment <output id="o2">45</output><input type="range" id="r2" min="10" max="180" step="5" value="45"></label>
+      <label>Staff cost per hour (₱) <output id="o3">₱180</output><input type="range" id="r3" min="80" max="600" step="10" value="180"></label>
+      <label>Billing errors per month <output id="o4">12</output><input type="range" id="r4" min="0" max="100" step="1" value="12"></label>
+    </div>
+    <div class="roi-out">
+      <div><span>Hours saved every month</span><b id="h">0</b></div>
+      <div><span>Saved per year</span><b id="peso">₱0</b></div>
+      <div><span>Full-time staff freed up</span><b id="fte">0</b></div>
+      <p class="fine">Estimate based on Logi-Sys published figures (50% less manual work, 3X faster documentation). Your demo shows your real numbers.</p>
+      <a href="#demo" class="btn lg light-btn" id="roiCta">Get my real numbers in a demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE FINDER -->
+<section class="finder" id="finder">
+  <div class="sec-head">
+    <h2 class="split">Find the right setup in 20 seconds.</h2>
+    <p class="reveal">Answer two questions. We pick the modules you need, and nothing you don't.</p>
+  </div>
+  <div class="fd">
+    <div class="fd-q">
+      <p class="q">What best describes your business?</p>
+      <div class="opts" id="fdType">
+        <button data-v="forwarder" class="on">Freight forwarder</button>
+        <button data-v="broker">Customs broker</button>
+        <button data-v="nvocc">Consolidator / NVOCC</button>
+        <button data-v="warehouse">Warehouse / CFS</button>
+        <button data-v="trucking">Trucking</button>
+      </div>
+      <p class="q">What do you want to fix first?</p>
+      <div class="opts multi" id="fdNeed">
+        <button data-v="docs" class="on">Too much typing</button>
+        <button data-v="track">Clients keep asking for updates</button>
+        <button data-v="billing">Slow billing and collections</button>
+        <button data-v="customs">Customs filing</button>
+        <button data-v="branches">Many branches</button>
+        <button data-v="sales">Winning more clients</button>
+      </div>
+    </div>
+    <div class="fd-a">
+      <p class="q">Your Logi-Sys setup</p>
+      <ul id="fdList"></ul>
+      <a href="#demo" class="btn lg" id="fdCta">Book a demo of this setup</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="sec-head"><h2 class="split">Frequently asked questions</h2></div>
+  <div class="qa">
+    <details class="reveal"><summary>Is Logi-Sys compliant with Philippine customs (BOC)?</summary><p>Yes. It is 100% compliant with BOC e2m requirements, ensuring seamless customs workflows.</p></details>
+    <details class="reveal"><summary>Does it support PEZA or Freeport operations?</summary><p>Yes. It includes built-in features for PEZA, Freeport, and bonded operations.</p></details>
+    <details class="reveal"><summary>Can small freight companies use Logi-Sys?</summary><p>Definitely. The system scales to suit startups, SMEs, and large enterprises alike.</p></details>
+    <details class="reveal"><summary>Do I need to install any hardware?</summary><p>No. Logi-Sys is a cloud-based freight management system, so no servers or maintenance are needed.</p></details>
+    <details class="reveal"><summary>What kind of support is available in the Philippines?</summary><p>Local support is available, backed by over three decades of global logistics software expertise.</p></details>
+    <details class="reveal"><summary>What is freight forwarding software?</summary><p>A software application that streamlines freight operations by letting everyone involved manage end-to-end functions: air freight, sea freight, land freight, warehouse, transport and customs.</p></details>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo" id="demo">
+  <div class="demo-txt">
+    <h2 class="split">Ready to digitize your freight operations?</h2>
+    <p class="reveal">Book a free consultation or request a personalized demo today.</p>
+    <div class="demo-alt reveal">
+      <a href="https://wa.link/8he6li" target="_blank" rel="noopener" class="btn ghost light">Chat on WhatsApp</a>
+      <a href="mailto:business@softlinkglobal.com" class="btn ghost light">business@softlinkglobal.com</a>
+    </div>
+  </div>
+  <form class="demo-form" id="demoForm" novalidate>
+    <div class="f2">
+      <label>Full name<input name="name" required autocomplete="name"></label>
+      <label>Company<input name="company" required autocomplete="organization"></label>
+    </div>
+    <div class="f2">
+      <label>Location / City<input name="city" required placeholder="e.g. Pasay City"></label>
+      <label>Position<input name="position" placeholder="e.g. Operations Manager"></label>
+    </div>
+    <div class="f2">
+      <label>Official email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Phone<input name="phone" type="tel" required autocomplete="tel" placeholder="+63"></label>
+    </div>
+    <label>Modules you're interested in<input name="modules" id="demoModules"></label>
+    <button class="btn lg" type="submit">Request my demo</button>
+    <p class="form-msg" id="formMsg" role="status"></p>
+  </form>
+</section>
+
+</main>
+
+<footer class="foot">
+  <img src="assets/img/logo.png" alt="Logi-Sys" width="130" height="32">
+  <p>The Intelligent Cloud ERP Platform for freight forwarding, customs, warehouse, transport and accounting.</p>
+  <p class="small">Concept prototype prepared by Likha Studio. Product names and figures from logi-sys.com. All shipment, tracking and financial data on this page is sample data.</p>
+</footer>
+
+<!-- ASSISTANT -->
+<button class="chat-fab" id="chatFab" data-open-chat aria-label="Ask Logi, the virtual assistant"><span class="dot"></span>Ask Logi</button>
+<aside class="chat" id="chat" aria-label="Logi virtual assistant" hidden>
+  <div class="chat-head">
+    <img src="assets/img/icon.png" alt="" width="28" height="28">
+    <div><b>Logi</b><small>Virtual assistant &middot; answers from Logi-Sys information</small></div>
+    <button id="chatX" aria-label="Close">&times;</button>
+  </div>
+  <div class="chat-log" id="chatLog" aria-live="polite"></div>
+  <div class="chat-sug" id="chatSug"></div>
+  <form class="chat-in" id="chatForm"><input id="chatQ" placeholder="Ask about modules, customs, pricing…" autocomplete="off" aria-label="Your question"><button aria-label="Send">→</button></form>
+</aside>
+
+<script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script src="assets/js/SplitText.min.js"></script>
+<script src="assets/js/lenis.min.js"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
