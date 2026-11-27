@@ -36,13 +36,15 @@
     toks.forEach(function (t) { variants(t).forEach(function (v) { all.push(v); }); });
     return { raw: q, n: ' ' + n + ' ', toks: toks, all: all, joined: ' ' + all.join(' ') + ' ' };
   }
+  // real words that are one letter apart from another keyword: never treat them as typos of each other
+  var NOFUZZ = { trucking: 1, tracking: 1, trucks: 1, tracks: 1 };
   function has(P, phrase) {
     var p = norm(phrase);
     if (!p) return false;
     if (P.n.indexOf(' ' + p + ' ') > -1 || P.joined.indexOf(' ' + p + ' ') > -1) return true;
     if (p.indexOf(' ') === -1 && p.length >= 6) {
       var lim = p.length >= 9 ? 2 : 1;
-      for (var i = 0; i < P.all.length; i++) { var t = P.all[i]; if (t[0] === p[0] && t.length >= 4 && lev(t, p) <= lim) return true; }
+      for (var i = 0; i < P.all.length; i++) { var t = P.all[i]; if (NOFUZZ[t] && t !== p) continue; if (t[0] === p[0] && t.length >= 4 && lev(t, p) <= lim) return true; }
     }
     return false;
   }
@@ -77,9 +79,20 @@
     N.services.forEach(function (s) {
       var sl = bestAlias(P, s.aliases.concat([s.name, s.short]));
       if (sl > best.len) best = { svc: s, line: null, len: sl };
-      s.lines.forEach(function (l) { var ll = bestAlias(P, l.aliases.concat([l.label])); if (ll > bestLine.len) bestLine = { svc: s, line: l, len: ll }; });
+      s.lines.forEach(function (l) { var ll = bestAlias(P, l.label.length > 4 ? l.aliases.concat([l.label]) : l.aliases); if (ll > bestLine.len) bestLine = { svc: s, line: l, len: ll }; });
     });
     return bestLine.line ? bestLine : best;
+  }
+  // is the place the origin ("from China", "galing Japan") rather than the destination?
+  function comesFrom(P, dest) {
+    if (!dest) return false;
+    var names = (dest.aliases || []).concat([dest.name]).map(norm).filter(Boolean);
+    for (var i = 0; i < names.length; i++) {
+      var n = names[i].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (new RegExp('\\b(from|galing|mula)\\s+(sa\\s+|the\\s+)?' + n + '\\b').test(P.n)) return true;
+      if (new RegExp('\\b(to|papunta|papuntang|going to)\\s+(sa\\s+|the\\s+)?' + n + '\\b').test(P.n)) return false;
+    }
+    return /\b(from|galing)\b/.test(P.n) && !/\b(to|papunta|papuntang)\b/.test(P.n);
   }
   function findNot(P) {
     var b = null, bl = 0;
@@ -266,7 +279,7 @@
           out.source = 'Rates › not published by Novus';
           break;
         }
-        var fromDir = /\b(from|galing)\b/.test(P.n) && !/\b(to|papunta|papuntang)\b/.test(P.n);
+        var fromDir = comesFrom(P, dest);
         var where = dest && dest.region !== 'home' ? (fromDir ? ' from ' : ' to ') + dest.name : '';
         if (fromDir) est.prefill.dir = 'Import';
         out.text = L('Novus doesn’t publish rates, so here is a demo ballpark for ' + label + where + ': about ' + rng(est.range) + ' (' + est.basis + '). Novus confirms the real rate for your shipment.',
@@ -292,7 +305,8 @@
         if (!dest || dest.region === 'home') { out.text = L('Where is it going, or coming from?', 'Saan po papunta, o galing?'); out.chips = ['Japan', 'China', 'Cebu', 'USA']; out.source = 'Transit › not published by Novus'; break; }
         var air = (svc && kindOf(svc, line, P) === 'air') || /\b(air|eroplano)\b/.test(P.n);
         var reg = dest.region === 'domesticland' ? 'domestic' : dest.region, tt = DEMO_TRANSIT[reg] ? DEMO_TRANSIT[reg][air ? 1 : 0] : '';
-        out.text = L('Novus doesn’t publish transit times. As a demo estimate only, Manila to ' + dest.name + ' by ' + (air ? 'air' : 'sea') + ' is typically ' + tt + ' port to port. The Novus team confirms the actual schedule.',
+        var fromD = comesFrom(P, dest);
+        out.text = L('Novus doesn’t publish transit times. As a demo estimate only, ' + (fromD ? dest.name + ' to Manila' : 'Manila to ' + dest.name) + ' by ' + (air ? 'air' : 'sea') + ' is typically ' + tt + ' port to port. The Novus team confirms the actual schedule.',
           'Hindi po nagpa-publish ng transit times ang Novus. Bilang demo estimate lang, Manila papuntang ' + dest.name + ' by ' + (air ? 'air' : 'sea') + ' ay karaniwang ' + tt + ' port to port. Kinukumpirma ng Novus team ang actual na schedule.');
         out.cards.push({ type: 'route', svc: svc, dest: dest, mode: air ? 'air' : 'sea', time: tt });
         out.chips = [L('How much for that?', 'Magkano po ’yan?'), air ? L('How about by sea?', 'Eh kung by sea?') : L('How about by air?', 'Eh kung by air?'), 'Talk to a person'];
