@@ -208,7 +208,7 @@
     this.host = host; this.lines = [];
     host.classList.add('chat');
     host.innerHTML = '<div class="chat-log" aria-live="polite"></div>' +
-      '<form class="chat-form" autocomplete="off"><label class="sr" for="' + (opts.id || 'q') + '">Ask Novus AI</label><input id="' + (opts.id || 'q') + '" placeholder="' + esc(opts.placeholder || 'Ask in English, Tagalog or Taglish…') + '" maxlength="300"><button class="send" aria-label="Send">' + ICON.send + '</button></form>' +
+      '<form class="chat-form" autocomplete="off"><label class="sr" for="' + (opts.id || 'q') + '">Ask Novus AI</label><input id="' + (opts.id || 'q') + '" placeholder="' + esc(opts.placeholder || 'Ask about any service or shipment…') + '" maxlength="300"><button class="send" aria-label="Send">' + ICON.send + '</button></form>' +
       (opts.foot === false ? '' : '<div class="chat-foot"><span>Answers from Novus’s information only</span><span>Free in-browser engine</span></div>');
     this.log = $('.chat-log', host); this.input = $('input', host);
     if (opts.empty) { this.log.innerHTML = opts.empty; wireCard(this.log, this); }
@@ -262,7 +262,7 @@
   function engineSwitch() {
     return '<div class="engine"><button type="button" aria-expanded="false" data-eng>' + '<span class="live-dot"></span>Free engine ▾</button>' +
       '<div class="engine-pop" hidden><div class="engine-opt on"><span class="rd"></span><div><b>Built-in engine (free)</b><small>Runs in your browser. Answers only from the Novus knowledge base. No API cost.</small></div></div>' +
-      '<button type="button" class="engine-opt" data-claude><span class="rd"></span><div><b>Claude by Anthropic</b><small>Live version: open-ended answers in natural Taglish, grounded on the same Novus knowledge base.</small></div></button>' +
+      '<button type="button" class="engine-opt" data-claude><span class="rd"></span><div><b>Claude by Anthropic</b><small>Live version: open-ended answers in natural English, grounded on the same Novus knowledge base.</small></div></button>' +
       '<p class="engine-note" data-engnote>This demo does not call any API. In the live version Novus can switch on Claude for open-ended questions; the scope limit and sources stay the same.</p></div></div>';
   }
   function wireEngine(root) {
@@ -275,7 +275,7 @@
   window.NovusEngineSwitch = { html: engineSwitch, wire: wireEngine };
 
   function emptyState(title, sub) {
-    var ex = ['Nag ca-cater ba kayo ng perishable?', 'PEZA cargo?', 'Triangular shipment, kaya nyo?', 'May wing van ba kayo?', 'DDP ba kayo?', 'Kwento mo naman about Novus'];
+    var ex = ['Do you handle perishable cargo?', 'PEZA cargo?', 'Can you handle triangular shipments?', 'Do you have wing vans?', 'Do you do DDP?', 'Tell me about Novus'];
     return '<div class="ask-empty"><div class="orb">' + ICON.spark + '</div><h2>' + esc(title) + '</h2><p>' + esc(sub) + '</p>' +
       '<div class="chips">' + ex.map(function (c) { return '<button class="chip" data-q="' + esc(c) + '">' + esc(c) + '</button>'; }).join('') + '</div></div>';
   }
@@ -289,7 +289,7 @@
     fab.innerHTML = '<span class="av">' + ICON.spark.replace('fill:var(--accent)', 'fill:#fff') + '</span>Ask Novus AI';
     var panel = document.createElement('aside');
     panel.className = 'panel'; panel.hidden = true; panel.setAttribute('aria-label', 'Novus AI assistant');
-    panel.innerHTML = '<div class="panel-head"><span class="av" style="width:32px;height:32px;border-radius:10px;background:rgba(255,255,255,.08);display:grid;place-items:center">' + ICON.spark + '</span><div class="grow"><b>Novus AI</b><small>English · Tagalog · Taglish</small></div>' + engineSwitch() + '<a class="full" href="ask.html">Full screen</a><button class="x" aria-label="Close">×</button></div><div data-chat style="flex:1;min-height:0;display:flex;flex-direction:column"></div>';
+    panel.innerHTML = '<div class="panel-head"><span class="av" style="width:32px;height:32px;border-radius:10px;background:rgba(255,255,255,.08);display:grid;place-items:center">' + ICON.spark + '</span><div class="grow"><b>Novus AI</b><small>Answers from Novus’s information</small></div>' + engineSwitch() + '<a class="full" href="ask.html">Full screen</a><button class="x" aria-label="Close">×</button></div><div data-chat style="flex:1;min-height:0;display:flex;flex-direction:column"></div>';
     document.body.appendChild(fab); document.body.appendChild(panel);
     wireEngine(panel);
     var openPanel = function (q) {

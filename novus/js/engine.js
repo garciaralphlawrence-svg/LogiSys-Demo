@@ -152,7 +152,7 @@
     var P = prep(q), out = { q: q, text: '', cards: [], chips: [], source: '', intent: '', gap: false };
     var co = N.company, c = N.contacts;
     ctx.turns++;
-    ctx.lang = isTL(P) ? 'tl' : (P.toks.length > 2 ? 'en' : ctx.lang);
+    ctx.lang = 'en'; // Novus AI always replies in English (it still understands Tagalog/Taglish questions)
 
     var no = trackNo(q), off = findOffer(P), svc = off.svc, line = off.line, notL = findNot(P);
     var dests = findDests(P), dest = regionOf(dests), qty = findQty(P);

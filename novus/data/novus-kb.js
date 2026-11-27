@@ -128,7 +128,7 @@ window.NOVUS = {
       lines: [
         { id: 'trailer', label: 'Trailer Trucks', aliases: ['trailer', 'trailer truck', 'container trailer', 'prime mover', 'chassis'], say: 'trailer trucks are part of Novus’s trucking services' },
         { id: 'small', label: 'Small Trucks', aliases: ['small truck', 'small trucks', 'elf', '4 wheeler', '6 wheeler', 'maliit na truck'], say: 'small trucks are part of Novus’s trucking services' },
-        { id: 'van', label: 'Winged Van & Closed Van', aliases: ['wing van', 'winged van', 'wingvan', 'closed van', 'close van', 'van'], say: 'winged van and closed van trucking are part of Novus’s trucking services' }
+        { id: 'van', label: 'Winged Van & Closed Van', aliases: ['wing van', 'wing vans', 'winged van', 'winged vans', 'wingvan', 'wingvans', 'closed van', 'closed vans', 'close van', 'van', 'vans'], say: 'winged van and closed van trucking are part of Novus’s trucking services' }
       ]
     }
   ],

@@ -21,9 +21,9 @@
   $('#heroAv').innerHTML = window.NovusIcons.spark;
   $('#heroEngine').innerHTML = window.NovusEngineSwitch.html();
   window.NovusEngineSwitch.wire($('#heroEngine'));
-  var hc = new window.NovusChat($('#heroChat'), { id: 'hq', foot: false, placeholder: 'e.g. Nag ca-cater ba kayo ng perishable?', empty: window.NovusEmpty('Ask anything about Novus Freight', 'Does Novus handle your cargo? Who are they? Accredited? Where’s my shipment? Ask in English, Tagalog or Taglish, no browsing needed.') });
+  var hc = new window.NovusChat($('#heroChat'), { id: 'hq', foot: false, placeholder: 'e.g. Do you handle perishable cargo?', empty: window.NovusEmpty('Ask anything about Novus Freight', 'Does Novus handle your cargo? Who are they? Accredited? Where’s my shipment? Just ask, no browsing needed.') });
   // rotating placeholder
-  var ph = ['e.g. Nag ca-cater ba kayo ng perishable?', 'e.g. Do you handle PEZA cargo?', 'e.g. Triangular shipment, kaya nyo?', 'e.g. May wing van ba kayo?', 'e.g. Kwento mo naman about Novus'], pi = 0;
+  var ph = ['e.g. Do you handle perishable cargo?', 'e.g. Do you handle PEZA cargo?', 'e.g. Can you handle triangular shipments?', 'e.g. Do you have wing vans?', 'e.g. Tell me about Novus'], pi = 0;
   if (!reduce) setInterval(function () { if (document.activeElement !== hc.input) { pi = (pi + 1) % ph.length; hc.input.placeholder = ph[pi]; } }, 3200);
 
   /* hero lanes (no map tiles: projected ports + arcs) */

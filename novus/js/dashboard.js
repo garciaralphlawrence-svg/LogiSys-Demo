@@ -18,7 +18,7 @@
       cust: [['Customer A · PEZA locator, Laguna', 1420000], ['Customer B · retail chain, Metro Manila', 1110000], ['Customer C · perishables importer, Valenzuela', 860000], ['Customer D · machinery, Cavite', 640000], ['Customer E · online seller, Pasig', 380000]],
       funnel: [['Quote requests', 214], ['Quoted', 188], ['Accepted', 71], ['Booked', 64]],
       asked: 412, gaps: 12,
-      top: [['Nag ca-cater ba kayo ng perishable cargo?', 46], ['Where is my shipment? (tracking)', 41], ['Do you clear PEZA cargo?', 37], ['Magkano LCL from China?', 33], ['Kaya nyo ba ang triangular shipment?', 19], ['Accredited ba kayo? (PEZA, CAB…)', 15]],
+      top: [['Do you handle perishable cargo?', 46], ['Where is my shipment? (tracking)', 41], ['Do you clear PEZA cargo?', 37], ['How much is LCL from China?', 33], ['Can you handle triangular shipments?', 19], ['Are you accredited? (PEZA, CAB…)', 15]],
       gap: [['May warehousing ba kayo?', 6], ['What are your office hours?', 4], ['Do you offer cargo insurance?', 3], ['May branch ba kayo sa Cebu?', 2]],
       src: [['Novus AI chat', 34], ['Google search', 26], ['Facebook', 15], ['Referrals', 13], ['AI assistants (ChatGPT, Gemini…)', 7], ['Phone / walk-in', 5]]
     },
@@ -29,7 +29,7 @@
       cust: [['Customer A · PEZA locator, Laguna', 4210000], ['Customer B · retail chain, Metro Manila', 3380000], ['Customer C · perishables importer, Valenzuela', 2470000], ['Customer D · machinery, Cavite', 1960000], ['Customer E · online seller, Pasig', 1020000]],
       funnel: [['Quote requests', 598], ['Quoted', 531], ['Accepted', 197], ['Booked', 181]],
       asked: 1184, gaps: 29,
-      top: [['Nag ca-cater ba kayo ng perishable cargo?', 129], ['Where is my shipment? (tracking)', 118], ['Do you clear PEZA cargo?', 104], ['Magkano LCL from China?', 97], ['Kaya nyo ba ang triangular shipment?', 52], ['Accredited ba kayo? (PEZA, CAB…)', 44]],
+      top: [['Do you handle perishable cargo?', 129], ['Where is my shipment? (tracking)', 118], ['Do you clear PEZA cargo?', 104], ['How much is LCL from China?', 97], ['Can you handle triangular shipments?', 52], ['Are you accredited? (PEZA, CAB…)', 44]],
       gap: [['May warehousing ba kayo?', 15], ['What are your office hours?', 11], ['Do you offer cargo insurance?', 8], ['May branch ba kayo sa Cebu?', 6]],
       src: [['Novus AI chat', 31], ['Google search', 28], ['Facebook', 16], ['Referrals', 14], ['AI assistants (ChatGPT, Gemini…)', 6], ['Phone / walk-in', 5]]
     }
