@@ -45,6 +45,7 @@
   $('#score').innerHTML = '<svg viewBox="0 0 150 150" role="img" aria-label="AI Visibility Score ' + score + ' of 100"><circle class="ring-bg" cx="75" cy="75" r="60"/><circle class="ring" id="ring" cx="75" cy="75" r="60" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + C.toFixed(1) + '"/><text x="75" y="80" text-anchor="middle">' + score + '</text><text class="s" x="75" y="100" text-anchor="middle">OF 100</text></svg>' +
     '<div style="flex:1;min-width:180px"><p style="font-weight:800;font-size:17px;letter-spacing:-.01em">Very low, and fixable</p><p style="color:var(--muted);font-size:14px;margin-top:4px">Simulated: Novus is mostly found only when people already type its name. The live version re-tests these prompts every week. Nobody can guarantee a top spot in AI answers, but readable facts are the first requirement.</p></div>';
   setTimeout(function () { $('#ring').style.strokeDashoffset = (C * (1 - score / 100)).toFixed(1); }, 200);
+  (function () { var tx = $('#score text'), t0 = null; if (!tx || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return; tx.textContent = '0'; requestAnimationFrame(function st(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / 1400); tx.textContent = Math.round(score * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(st); }); })();
 
   $('#engines').innerHTML = ENG.map(function (e, i) { var pc = Math.round(per[i] / PROMPTS.length * 100); return '<div class="eng"><small>' + e + '</small><b>' + pc + '%</b><i style="--w:' + pc + '%"></i></div>'; }).join('');
 
@@ -85,4 +86,45 @@
   $$('.tabs button').forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.v); }); });
   $$('[data-v-open]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); show(a.dataset.vOpen); $('#vView').scrollIntoView({ behavior: 'smooth', block: 'center' }); }); });
   show('llms');
+})();
+
+/* before / after reveal slider: what a crawler gets from nfiph.com vs this platform */
+(function () {
+  'use strict';
+  var N = window.NOVUS, esc = window.NovusT.esc, host = document.getElementById('bas');
+  if (!host) return;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var raw = '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <title>Novus Freight Inc. - Global Logistics Solutions</title>\n    <script type="module" src="/assets/index-DTq9U9WI.js"></script>\n  </head>\n  <body>\n    <div id="root"></div>\n  </body>\n</html>';
+  var lines = N.services.reduce(function (a, s) { return a + s.lines.length; }, 0);
+  host.innerHTML =
+    '<div class="bas-top"><span class="b">Before · nfiph.com, as a crawler downloads it</span><span class="a">After · this platform</span></div>' +
+    '<div class="bas-frame">' +
+      '<div class="bas-layer bas-before"><pre></pre><div class="empty"><b>An empty page</b><small>Services, history and contacts are not in it</small></div></div>' +
+      '<div class="bas-layer bas-after"><h4>Readable without JavaScript</h4><div class="facts">' +
+        '<div><span>Company</span><b>' + esc(N.company.name) + '</b></div>' +
+        '<div><span>Since</span><b>2017</b></div>' +
+        '<div><span>Office</span><b>Binondo, Manila</b></div>' +
+        '<div><span>Phone</span><b>' + esc(N.contacts.phone) + '</b></div>' +
+        '<div><span>Services</span><b>' + N.services.length + ' with ' + lines + ' service lines</b></div>' +
+        '<div><span>Accreditations</span><b>' + N.company.accreditations.length + ' local + ' + N.company.networks.length + ' networks</b></div>' +
+        '<div><span>Structured data</span><b>JSON-LD</b></div>' +
+        '<div><span>For AI assistants</span><b>llms.txt</b></div>' +
+      '</div><ul class="svcs">' + N.services.map(function (s) { return '<li>' + esc(s.name) + '</li>'; }).join('') + '</ul></div>' +
+      '<span class="bas-handle"></span>' +
+      '<input class="bas-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after">' +
+    '</div><p class="bas-note">Drag to compare. Left: the real HTML nfiph.com sends today (checked 27 Nov 2026). Right: the facts this platform puts in the page.</p>';
+  host.querySelector('pre').textContent = raw;
+  var after = host.querySelector('.bas-after'), handle = host.querySelector('.bas-handle'), range = host.querySelector('.bas-range');
+  function set(v) { after.style.clipPath = 'inset(0 0 0 ' + v + '%)'; handle.style.left = v + '%'; range.value = v; }
+  range.addEventListener('input', function () { set(+range.value); });
+  set(50);
+  if (reduce || !('IntersectionObserver' in window)) return;
+  set(96);
+  var io = new IntersectionObserver(function (es) {
+    if (!es[0].isIntersecting) return; io.disconnect();
+    var t0 = null;
+    (function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / 1600), e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2; set(96 - 46 * e); if (k < 1) requestAnimationFrame(step); })(performance.now());
+    setTimeout(function () { if (+range.value > 60) set(50); }, 2400);
+  }, { threshold: 0.4 });
+  io.observe(host);
 })();

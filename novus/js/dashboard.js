@@ -86,7 +86,7 @@
     /* bars */
     function bars(el, rows, fmt, acc) {
       var m = rows[0][1];
-      el.innerHTML = rows.map(function (r) { return '<div class="bar-row' + (acc ? ' acc' : '') + '"><b title="' + esc(r[0]) + '">' + esc(r[0]) + '</b><span>' + fmt(r[1]) + '</span><div class="track"><i data-w="' + (r[1] / m * 100).toFixed(1) + '"></i></div></div>'; }).join('');
+      el.innerHTML = rows.map(function (r) { return '<div class="bar-row' + (acc ? ' hl' : '') + '"><b title="' + esc(r[0]) + '">' + esc(r[0]) + '</b><span>' + fmt(r[1]) + '</span><div class="track"><i data-w="' + (r[1] / m * 100).toFixed(1) + '"></i></div></div>'; }).join('');
       requestAnimationFrame(function () { setTimeout(function () { $$('i[data-w]', el).forEach(function (i) { i.style.width = i.dataset.w + '%'; }); }, 60); });
     }
     bars($('#lanesBars'), d.lanes, function (v) { return v + ' shipments'; });

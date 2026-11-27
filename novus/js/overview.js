@@ -61,6 +61,7 @@
     var steps = document.querySelectorAll('.flow-step'), k = 0, timer = null;
     function lightTo(n) { Array.prototype.forEach.call(steps, function (s, i) { s.classList.toggle('lit', i <= n); }); }
     if (reduce) return lightTo(steps.length - 1);
+    if (window.gsap && window.ScrollTrigger) return; // motion.js drives the flow from scroll position
     var io = new IntersectionObserver(function (es) {
       if (es[0].isIntersecting && !timer) { k = -1; timer = setInterval(function () { k++; if (k >= steps.length + 2) k = 0; lightTo(Math.min(k, steps.length - 1)); }, 900); }
       else if (!es[0].isIntersecting && timer) { clearInterval(timer); timer = null; }
@@ -72,10 +73,13 @@
 
 /* hide the floating launcher while the hero console is on screen (it is the same assistant) */
 (function () {
-  var fab = document.querySelector('.fab'), con = document.getElementById('heroConsole');
+  var fab = document.querySelector('.fab'), con = document.getElementById('heroConsole'), hero = document.querySelector('.s-hero');
   if (!fab || !con || !('IntersectionObserver' in window)) return;
-  new IntersectionObserver(function (es) {
+  var on = {};
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { on[e.target === con ? 'c' : 'h'] = e.isIntersecting && e.intersectionRatio > 0.25; });
     var panelOpen = document.querySelector('.panel') && !document.querySelector('.panel').hidden;
-    if (!panelOpen) fab.hidden = es[0].isIntersecting && es[0].intersectionRatio > 0.25;
-  }, { threshold: [0, 0.25, 0.5] }).observe(con);
+    if (!panelOpen) fab.hidden = !!(on.c || on.h);
+  }, { threshold: [0, 0.25, 0.5] });
+  io.observe(con); if (hero) io.observe(hero);
 })();
