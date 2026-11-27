@@ -4,21 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
-<title>Ask Novus AI · Novus Freight</title>
-<meta name="description" content="Ask Novus Freight anything about services, rates, documents, ports and shipments, in English, Tagalog or Taglish.">
+<title>Ask Novus AI · Novus Freight Inc.</title>
+<meta name="description" content="Ask Novus Freight Inc. anything about its services, history, accreditations and shipments, in English, Tagalog or Taglish.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0b1322">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23ff6a2b'/%3E%3Cpath d='M10 22V10l12 12V10' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0a0f44">
+<link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/novus.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/novus.css?v=2">
 </head>
 <body data-page="ask">
 <header class="nav">
-  <a class="brand" href="index.html" aria-label="Novus Freight home">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M10 22V10l12 12V10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span>Novus Freight<small>Placeholder wordmark</small></span>
+  <a class="brand" href="index.html" aria-label="Novus Freight Inc. home">
+    <img class="logo-dark" src="assets/novus-lockup.png" alt="Novus Freight Inc." width="170" height="40"><img class="logo-light" src="assets/novus-lockup-light.png" alt="" width="170" height="40">
   </a>
   <nav class="links" aria-label="Main">
     <a href="index.html">Overview</a>
@@ -41,20 +40,23 @@
   <aside class="ask-side">
     <div>
       <p class="eyebrow">Novus AI</p>
-      <h1 style="margin-top:8px">Ask anything about Novus. Skip the browsing.</h1>
-      <p style="margin-top:10px">Services, rates, documents, ports and shipment status, answered in English, Tagalog or Taglish. Every answer shows where it came from.</p>
+      <h1 style="margin-top:8px">Ask anything about Novus Freight. Skip the browsing.</h1>
+      <p style="margin-top:10px">Services, cargo types, company story, accreditations, contacts and shipment status, answered in English, Tagalog or Taglish. Every answer shows where it came from.</p>
     </div>
     <div class="card">
       <h3>Try these</h3>
       <div class="try">
-        <button data-ask="Nag ca-cater ba kayo ng LCL papuntang Cebu?"><small>Taglish</small>Nag ca-cater ba kayo ng LCL papuntang Cebu?</button>
-        <button data-ask="How much for that?"><small>Follow-up (remembers context)</small>How much for that?</button>
-        <button data-ask="Magkano air freight to Japan?"><small>Taglish · estimate</small>Magkano air freight to Japan?</button>
-        <button data-ask="Track NVF-24117"><small>Tracking</small>Track NVF-24117</button>
-        <button data-ask="Anong documents ang kailangan para sa customs?"><small>Tagalog · checklist</small>Anong documents ang kailangan para sa customs?</button>
-        <button data-ask="Can you book me a plane ticket?"><small>Clear “no”</small>Can you book me a plane ticket?</button>
-        <button data-ask="Who won the game last night?"><small>Off-topic · scope limit</small>Who won the game last night?</button>
+        <button data-ask="Nag ca-cater ba kayo ng perishable?"><small>Taglish · instant yes</small>Nag ca-cater ba kayo ng perishable?</button>
+        <button data-ask="PEZA cargo?"><small>Cargo type</small>PEZA cargo?</button>
+        <button data-ask="Kaya nyo ba ang triangular shipment?"><small>Taglish · service line</small>Kaya nyo ba ang triangular shipment?</button>
+        <button data-ask="May wing van ba kayo?"><small>Trucking</small>May wing van ba kayo?</button>
+        <button data-ask="DDP ba kayo?"><small>Trade terms</small>DDP ba kayo?</button>
+        <button data-ask="How much for that?"><small>Follow-up · demo ballpark</small>How much for that?</button>
+        <button data-ask="May warehousing ba kayo?"><small>Not on their list · honest answer</small>May warehousing ba kayo?</button>
         <button data-ask="Kwento mo naman about Novus"><small>Company story</small>Kwento mo naman about Novus</button>
+        <button data-ask="Accredited ba kayo?"><small>Accreditations</small>Accredited ba kayo?</button>
+        <button data-ask="Track NVF-24117"><small>Tracking (sample)</small>Track NVF-24117</button>
+        <button data-ask="Who won the game last night?"><small>Off-topic · scope limit</small>Who won the game last night?</button>
       </div>
     </div>
     <div class="card">
@@ -74,10 +76,10 @@
   </section>
 </div>
 </main>
-<script src="data/novus-kb.js?v=1"></script>
-<script src="js/templates.js?v=1"></script>
-<script src="js/engine.js?v=1"></script>
-<script src="js/site.js?v=1"></script>
-<script src="js/ask.js?v=1"></script>
+<script src="data/novus-kb.js?v=2"></script>
+<script src="js/templates.js?v=2"></script>
+<script src="js/engine.js?v=2"></script>
+<script src="js/site.js?v=2"></script>
+<script src="js/ask.js?v=2"></script>
 </body>
 </html>

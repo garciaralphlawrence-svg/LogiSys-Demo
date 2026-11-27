@@ -15,22 +15,22 @@
       kpi: [['Active shipments', 142, '', '+9 vs last 30d', 'up'], ['On time', 94.2, '%', '+1.6 pts', 'up'], ['In customs', 23, '', '3 on hold', 'down'], ['Revenue this month', 8420000, 'peso', '+12%', 'up'], ['Quotes pending', 31, '', '9 older than 3 days', 'down'], ['Avg clearance', 2.8, ' days', '−0.4 days', 'up']],
       stages: [28, 47, 12, 23, 9, 186],
       lanes: [['Shanghai → Manila · FCL', 38], ['Shenzhen → Manila · LCL', 31], ['Manila → Cebu · Domestic', 22], ['Busan → Manila · LCL', 18], ['Clark ↔ Tokyo · Air', 14], ['Singapore → Manila · LCL', 11]],
-      cust: [['Customer A · electronics, Laguna (PEZA)', 1420000], ['Customer B · retail chain, Metro Manila', 1110000], ['Customer C · food importer, Valenzuela', 860000], ['Customer D · machinery, Cavite', 640000], ['Customer E · online seller, Pasig', 380000]],
+      cust: [['Customer A · PEZA locator, Laguna', 1420000], ['Customer B · retail chain, Metro Manila', 1110000], ['Customer C · perishables importer, Valenzuela', 860000], ['Customer D · machinery, Cavite', 640000], ['Customer E · online seller, Pasig', 380000]],
       funnel: [['Quote requests', 214], ['Quoted', 188], ['Accepted', 71], ['Booked', 64]],
       asked: 412, gaps: 12,
-      top: [['Do you handle LCL to Cebu or Davao?', 48], ['Magkano air freight to Japan / China?', 41], ['Where is my shipment? (tracking)', 39], ['What documents do I need for customs?', 33], ['Do you handle PEZA shipments?', 21], ['How long does customs clearance take?', 18]],
-      gap: [['Do you ship live animals?', 4], ['May branch ba kayo sa Iloilo?', 3], ['Can you handle balikbayan boxes from the US?', 3], ['Do you accept GCash?', 2]],
+      top: [['Nag ca-cater ba kayo ng perishable cargo?', 46], ['Where is my shipment? (tracking)', 41], ['Do you clear PEZA cargo?', 37], ['Magkano LCL from China?', 33], ['Kaya nyo ba ang triangular shipment?', 19], ['Accredited ba kayo? (PEZA, CAB…)', 15]],
+      gap: [['May warehousing ba kayo?', 6], ['What are your office hours?', 4], ['Do you offer cargo insurance?', 3], ['May branch ba kayo sa Cebu?', 2]],
       src: [['Novus AI chat', 34], ['Google search', 26], ['Facebook', 15], ['Referrals', 13], ['AI assistants (ChatGPT, Gemini…)', 7], ['Phone / walk-in', 5]]
     },
     90: {
       kpi: [['Active shipments', 142, '', '+21 vs prior 90d', 'up'], ['On time', 92.8, '%', '+0.9 pts', 'up'], ['In customs', 23, '', '3 on hold', 'down'], ['Revenue (90 days)', 24900000, 'peso', '+8%', 'up'], ['Quotes pending', 31, '', '9 older than 3 days', 'down'], ['Avg clearance', 3.1, ' days', '−0.2 days', 'up']],
       stages: [28, 47, 12, 23, 9, 541],
       lanes: [['Shanghai → Manila · FCL', 104], ['Shenzhen → Manila · LCL', 92], ['Manila → Cebu · Domestic', 70], ['Busan → Manila · LCL', 49], ['Clark ↔ Tokyo · Air', 41], ['Singapore → Manila · LCL', 36]],
-      cust: [['Customer A · electronics, Laguna (PEZA)', 4210000], ['Customer B · retail chain, Metro Manila', 3380000], ['Customer C · food importer, Valenzuela', 2470000], ['Customer D · machinery, Cavite', 1960000], ['Customer E · online seller, Pasig', 1020000]],
+      cust: [['Customer A · PEZA locator, Laguna', 4210000], ['Customer B · retail chain, Metro Manila', 3380000], ['Customer C · perishables importer, Valenzuela', 2470000], ['Customer D · machinery, Cavite', 1960000], ['Customer E · online seller, Pasig', 1020000]],
       funnel: [['Quote requests', 598], ['Quoted', 531], ['Accepted', 197], ['Booked', 181]],
       asked: 1184, gaps: 29,
-      top: [['Do you handle LCL to Cebu or Davao?', 131], ['Magkano air freight to Japan / China?', 117], ['Where is my shipment? (tracking)', 109], ['What documents do I need for customs?', 96], ['How long does customs clearance take?', 58], ['Do you handle PEZA shipments?', 55]],
-      gap: [['Do you ship live animals?', 9], ['May branch ba kayo sa Iloilo?', 8], ['Can you handle balikbayan boxes from the US?', 7], ['Do you accept GCash?', 5]],
+      top: [['Nag ca-cater ba kayo ng perishable cargo?', 129], ['Where is my shipment? (tracking)', 118], ['Do you clear PEZA cargo?', 104], ['Magkano LCL from China?', 97], ['Kaya nyo ba ang triangular shipment?', 52], ['Accredited ba kayo? (PEZA, CAB…)', 44]],
+      gap: [['May warehousing ba kayo?', 15], ['What are your office hours?', 11], ['Do you offer cargo insurance?', 8], ['May branch ba kayo sa Cebu?', 6]],
       src: [['Novus AI chat', 31], ['Google search', 28], ['Facebook', 16], ['Referrals', 14], ['AI assistants (ChatGPT, Gemini…)', 6], ['Phone / walk-in', 5]]
     }
   };
@@ -154,7 +154,7 @@
       g += '<circle class="nd" cx="' + b[0].toFixed(1) + '" cy="' + b[1].toFixed(1) + '" r="3.5"/><text x="' + lx.toFixed(1) + '" y="' + (b[1] - 4).toFixed(1) + '" text-anchor="' + anc + '">' + l[0] + '</text><text class="n" x="' + lx.toFixed(1) + '" y="' + (b[1] + 9).toFixed(1) + '" text-anchor="' + anc + '">' + l[4] + ' active</text>';
       paths.push({ i: i, n: Math.max(1, Math.round(l[4] / 9)) });
     });
-    g += '<circle cx="' + home[0] + '" cy="' + home[1] + '" r="14" fill="rgba(255,106,43,.18)"/><circle class="nd hub" cx="' + home[0] + '" cy="' + home[1] + '" r="6"/><text x="' + (home[0] + 12) + '" y="' + (home[1] + 4) + '" style="fill:#fff;font-weight:800">Manila</text>';
+    g += '<circle cx="' + home[0] + '" cy="' + home[1] + '" r="14" fill="rgba(96,165,250,.22)"/><circle class="nd hub" cx="' + home[0] + '" cy="' + home[1] + '" r="6"/><text x="' + (home[0] + 12) + '" y="' + (home[1] + 4) + '" style="fill:#fff;font-weight:800">Manila</text>';
     svg.innerHTML = g;
     var dots = [];
     paths.forEach(function (p) {

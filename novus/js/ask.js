@@ -6,15 +6,15 @@
   $('#askEngine').innerHTML = window.NovusEngineSwitch.html();
   window.NovusEngineSwitch.wire($('#askEngine'));
   $('#kbStats').innerHTML = [
-    ['Services', N.services.length], ['Not offered (clear “no”)', N.notHandled.length], ['Ports', N.ports.length],
-    ['Destinations', N.destinations.length], ['FAQs', N.faqs.length], ['Document checklists', Object.keys(N.documents).length], ['Shipments (sample)', N.shipments.length]
+    ['Services (nfiph.com)', N.services.length], ['Service lines & cargo types', N.services.reduce(function (a, x) { return a + x.lines.length; }, 0)], ['Company story & values', N.company.history.length + N.company.values.length],
+    ['Networks & accreditations', N.company.networks.length + N.company.accreditations.length], ['FAQs', N.faqs.length], ['Contacts', N.contacts.phones.length + N.contacts.emails.length], ['Shipments (sample)', N.shipments.length]
   ].map(function (r) { return '<div><span>' + r[0] + '</span><b>' + r[1] + '</b></div>'; }).join('');
 
   function mount() {
     window.NovusAI.reset();
     window.NovusPageChat = new window.NovusChat($('#askChat'), {
       id: 'aq',
-      empty: window.NovusEmpty('Hi! I’m Novus AI.', 'Ask me if Novus handles your cargo, how much it costs, what documents you need, or where your shipment is.')
+      empty: window.NovusEmpty('Hi! I’m Novus AI.', 'Ask me if Novus Freight handles your cargo, who they are, what they’re accredited for, or where your shipment is.')
     });
   }
   mount();

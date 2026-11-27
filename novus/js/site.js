@@ -21,8 +21,8 @@
     var rb = document.createElement('div');
     rb.className = 'ribbon'; rb.setAttribute('role', 'note');
     rb.innerHTML = N.meta.sample
-      ? '<b>Demo</b><span>· sample data until Novus confirms</span><span class="long">· concept by Likha Studio, running on <i>Logi-Sys</i></span>'
-      : '<b>Demo</b><span class="long">· concept by Likha Studio, running on <i>Logi-Sys</i></span>';
+      ? '<b>Demo</b><span>· shipments, rates &amp; dashboard numbers are sample data</span><span class="long">· company facts from nfiph.com · built by Likha Studio on <i>Logi-Sys</i></span>'
+      : '<b>Demo</b><span class="long">· built by Likha Studio on <i>Logi-Sys</i></span>';
     document.body.insertBefore(rb, document.body.firstChild);
   }
 
@@ -95,36 +95,34 @@
     var h = '';
     switch (c.type) {
       case 'service': {
-        var s = c.svc;
+        var s = c.svc, ln = c.line;
         h = '<div class="acard">' +
-          '<div class="verdict yes">' + ICON.check + '<div>Yes, we handle this<small>' + esc(s.group) + ' service · Novus Freight</small></div></div>' +
-          '<div class="acard-h"><span class="svc-ic-sm">' + (T.ICONS[s.group] || T.ICONS.Sea) + '</span><h4>' + esc(s.name) + '</h4></div>' +
-          '<div class="acard-b"><ul>' + s.details.map(function (d) { return '<li>' + ICON.check + '<span>' + esc(d) + '</span></li>'; }).join('') + '</ul></div>' +
-          '<div class="acard-f"><button class="btn sm ghost" data-q="What documents do I need for ' + esc(s.name.replace(' · ', ' ').replace(/\s*\(.*\)/, '')) + '?">Required documents</button>' +
-          '<a class="btn sm" href="' + quoteUrl({ svc: s.id, dest: AI.ctx.lastDest ? AI.ctx.lastDest.name : '' }) + '">Get a quote</a></div></div>';
+          '<div class="verdict yes">' + ICON.check + '<div>Yes, Novus handles this<small>' + esc(ln ? ln.label : s.name) + ' · from Novus’s service list</small></div></div>' +
+          '<div class="acard-h"><span class="svc-ic-sm">' + (T.ICONS[s.group] || T.ICONS.Global) + '</span><h4>' + esc(s.name) + '</h4></div>' +
+          '<div class="acard-b"><ul class="lines">' + s.lines.map(function (l) { return '<li class="' + (ln && ln.id === l.id ? 'hit' : '') + '">' + ICON.check + '<span>' + esc(l.label) + '</span></li>'; }).join('') + '</ul></div>' +
+          '<div class="acard-f">' + (s.id !== 'trucking' ? '<button class="btn sm ghost" data-q="What documents do I need for ' + esc(ln ? ln.label.replace(/\s*\(.*\)/, '') : s.short) + '?">Documents</button>' : '') +
+          '<a class="btn sm" href="' + quoteUrl({ svc: s.id, line: ln ? ln.id : '', dest: AI.ctx.lastDest ? AI.ctx.lastDest.name : '' }) + '">Get a quote</a></div></div>';
         break;
       }
       case 'verdict':
-        h = '<div class="acard"><div class="verdict no">' + ICON.x + '<div>No, Novus doesn’t offer this<small>' + esc(c.title) + '</small></div></div>' +
-          '<div class="acard-b"><p>' + esc(c.body) + '</p></div></div>';
+        h = '<div class="acard"><div class="verdict notlisted">' + ICON.x + '<div>Not on Novus’s service list<small>' + esc(c.title) + ' · ask the team to confirm</small></div></div></div>';
         break;
       case 'route': {
         var d = c.dest, dom = d.region === 'domestic' || d.region === 'domesticland';
-        h = '<div class="acard"><div class="acard-b"><div class="route">' +
-          '<div><small>From</small><b>Manila</b><small>' + (c.mode === 'air' ? 'NAIA / Clark' : 'MICP / South Harbor') + '</small></div>' +
+        h = '<div class="acard"><div class="acard-h"><h4>Route</h4><span class="pill warn">Demo estimate</span></div><div class="acard-b"><div class="route">' +
+          '<div><small>From</small><b>Manila</b><small>Philippines</small></div>' +
           '<svg viewBox="0 0 200 36" aria-hidden="true"><path d="M6 28 Q100 -6 194 28"/><path class="go" d="M6 28 Q100 -6 194 28"/><circle cx="6" cy="28" r="4"/><circle class="end" cx="194" cy="28" r="4"/></svg>' +
           '<div class="r2"><small>To</small><b>' + esc(d.name) + '</b><small>' + (dom ? 'Domestic' : 'International') + '</small></div></div>' +
-          '<dl class="kv"><dt>Mode</dt><dd>' + (c.svc ? esc(c.svc.name) : (c.mode === 'air' ? 'Air freight' : 'Sea freight (LCL or FCL)')) + '</dd>' +
-          (c.time ? '<dt>Transit</dt><dd>' + esc(c.time) + ' (sample)</dd>' : '') +
-          (d.region !== 'domesticland' && d.air && d.air !== 'n/a' && c.mode !== 'air' ? '<dt>By air</dt><dd>' + esc(d.air) + '</dd>' : '') +
+          '<dl class="kv"><dt>Service</dt><dd>' + (dom ? 'Domestic / Local Freight Forwarding' : 'International Freight Forwarding') + '</dd>' +
+          (c.time ? '<dt>Typical transit</dt><dd>' + esc(c.time) + ' by ' + c.mode + ' (demo, not Novus data)</dd>' : '') +
           '</dl></div></div>';
         break;
       }
       case 'estimate': {
         var e = c.est;
-        h = '<div class="acard"><div class="acard-h"><h4>Ballpark estimate</h4><span class="pill warn">Estimate only</span></div>' +
+        h = '<div class="acard"><div class="acard-h"><h4>Demo ballpark</h4><span class="pill warn">Not Novus’s rates</span></div>' +
           '<div class="acard-b"><div class="est-big">' + AI.peso(e.range[0]) + ' – ' + AI.peso(e.range[1]) + '</div>' +
-          '<p style="margin-top:4px">' + esc(c.svc.name) + (c.dest && c.dest.region !== 'home' ? ' · ' + esc(c.dest.name) : '') + ' · ' + esc(e.basis) + '</p>' +
+          '<p style="margin-top:4px">' + esc(c.line ? c.line.label : c.svc.short) + (c.dest && c.dest.region !== 'home' ? ' · ' + esc(c.dest.name) : '') + ' · ' + esc(e.basis) + '</p>' +
           '<p style="margin-top:8px;font-size:12.5px">' + esc(N.rates.note) + '</p></div>' +
           '<div class="acard-f"><a class="btn sm" href="' + quoteUrl(e.prefill) + '">Start a quote with this</a></div></div>';
         break;
@@ -132,7 +130,7 @@
       case 'docs': {
         h = '<div class="acard"><div class="acard-h"><span class="svc-ic-sm">' + T.ICONS.Customs + '</span><h4>' + esc(c.doc.title) + '</h4><span class="tag" data-cnt>0/' + c.doc.items.length + '</span></div>' +
           '<div class="acard-b"><ul class="check">' + c.doc.items.map(function (d) { return '<li role="checkbox" aria-checked="false" tabindex="0"><span class="bx"></span><span>' + esc(d) + '</span></li>'; }).join('') + '</ul>' +
-          '<div class="prog"><i></i></div><p style="font-size:12.5px;margin-top:8px">Tick what you already have. Novus checks the rest before lodging with BOC.</p></div></div>';
+          '<div class="prog"><i></i></div><p style="font-size:12.5px;margin-top:8px">Tick what you already have. Novus’s Licensed Customs Brokers confirm the rest.</p></div></div>';
         break;
       }
       case 'track': {
@@ -146,10 +144,10 @@
       }
       case 'handoff': {
         var k = N.contacts;
-        h = '<div class="acard"><div class="acard-h"><h4>Talk to a person</h4><span class="tag">' + esc(N.company.hoursShort) + '</span></div><div class="acard-b"><div class="handoff">' +
+        h = '<div class="acard"><div class="acard-h"><h4>Talk to the Novus team</h4><span class="tag">' + esc(N.company.district) + ', Manila</span></div><div class="acard-b"><div class="handoff">' +
           '<a href="' + T.tel(k.phone) + '">Call<small>' + esc(k.phone) + '</small></a>' +
-          '<a href="' + T.tel(k.mobile) + '">Viber / WhatsApp<small>' + esc(k.mobile) + '</small></a>' +
-          '<a href="mailto:' + esc(k.email) + '">Email<small>' + esc(k.email) + '</small></a></div>' +
+          '<a href="mailto:' + esc(k.email) + '">Email<small>' + esc(k.email) + '</small></a>' +
+          '<a href="' + esc(k.facebook) + '" rel="noopener">Facebook<small>novusfreightinc</small></a></div>' +
           (c.transcript ? '<div class="acard-f" style="padding:10px 0 0"><button class="btn sm" data-transcript>Send this chat to the Novus team</button></div>' : '') +
           '</div></div>';
         break;
@@ -161,17 +159,22 @@
           '<div class="acard-f"><a class="btn sm" href="' + quoteUrl(p) + '">Open the quote form</a></div></div>';
         break;
       }
-      case 'ports':
-        h = '<div class="acard"><div class="acard-h"><h4>Ports Novus works at</h4></div><div class="acard-b"><ul>' + N.ports.map(function (p) { return '<li>' + ICON.check + '<span><b>' + esc(p.name) + '</b> <span class="tag">' + esc(p.mode) + '</span></span></li>'; }).join('') + '</ul></div></div>';
-        break;
       case 'list':
-        h = '<div class="acard"><div class="acard-b"><div class="svc-list">' + N.services.map(function (s) { return '<button data-q="Do you handle ' + esc(s.name.replace(' · ', ' ').replace(/\s*\(.*\)/, '')) + '?"><span class="svc-ic-sm">' + (T.ICONS[s.group] || '') + '</span>' + esc(s.name) + '</button>'; }).join('') + '</div></div></div>';
+        h = '<div class="acard"><div class="acard-b"><div class="svc-list">' + N.services.map(function (s) { return '<button data-q="Does Novus offer ' + esc(s.short) + '?"><span class="svc-ic-sm">' + (T.ICONS[s.group] || '') + '</span>' + esc(s.name) + '</button>'; }).join('') + '</div></div></div>';
         break;
-      case 'about':
-        h = '<div class="acard"><div class="acard-b"><dl class="kv" style="margin-top:0"><dt>What we are</dt><dd>' + esc(N.company.type) + '</dd><dt>Based in</dt><dd>' + esc(N.company.city) + ', Philippines</dd><dt>Services</dt><dd>' + N.services.length + ' (sea, air, customs, land)</dd><dt>Languages</dt><dd>English, Filipino</dd><dt>Runs on</dt><dd>Logi-Sys cloud freight ERP</dd></dl></div></div>';
+      case 'timeline':
+        h = '<div class="acard"><div class="acard-h"><h4>Novus Freight Inc. · company history</h4></div><div class="acard-b"><ul class="mini-hist">' + N.company.history.map(function (x) { return '<li><b>' + esc(x.when) + '</b><span>' + esc(x.what) + '</span></li>'; }).join('') + '</ul>' +
+          '<p style="margin-top:10px;font-size:12.5px">Values: ' + N.company.values.map(function (v) { return v.name; }).join(' · ') + '</p></div></div>';
+        break;
+      case 'values':
+        h = '<div class="acard"><div class="acard-b"><ul class="lines">' + N.company.values.map(function (v) { return '<li>' + ICON.check + '<span><b>' + esc(v.name) + '</b></span></li>'; }).join('') + '</ul></div></div>';
+        break;
+      case 'accred':
+        h = '<div class="acard"><div class="acard-b"><p style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">International networks</p><div class="chipset">' + N.company.networks.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('') + '</div>' +
+          '<p style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin:12px 0 6px">Local licenses &amp; accreditations</p><div class="chipset">' + N.company.accreditations.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('') + '</div></div></div>';
         break;
       case 'scope':
-        h = '<div class="acard"><div class="acard-b"><p style="font-size:13px">I answer from Novus’s own information only: services, rates, documents, ports, office details and your shipment status. That keeps every answer accurate.</p></div></div>';
+        h = '<div class="acard"><div class="acard-b"><p style="font-size:13px">I answer from Novus Freight Inc.’s own information only: its services, history, accreditations, contacts and your shipment. That keeps every answer accurate.</p></div></div>';
         break;
     }
     return h;
@@ -272,7 +275,7 @@
   window.NovusEngineSwitch = { html: engineSwitch, wire: wireEngine };
 
   function emptyState(title, sub) {
-    var ex = ['Nag ca-cater ba kayo ng LCL papuntang Cebu?', 'Magkano air freight to Japan?', 'Track NVF-24117', 'What documents do I need for customs?'];
+    var ex = ['Nag ca-cater ba kayo ng perishable?', 'PEZA cargo?', 'Triangular shipment, kaya nyo?', 'May wing van ba kayo?', 'DDP ba kayo?', 'Kwento mo naman about Novus'];
     return '<div class="ask-empty"><div class="orb">' + ICON.spark + '</div><h2>' + esc(title) + '</h2><p>' + esc(sub) + '</p>' +
       '<div class="chips">' + ex.map(function (c) { return '<button class="chip" data-q="' + esc(c) + '">' + esc(c) + '</button>'; }).join('') + '</div></div>';
   }
@@ -290,7 +293,7 @@
     document.body.appendChild(fab); document.body.appendChild(panel);
     wireEngine(panel);
     var openPanel = function (q) {
-      if (!panelChat) panelChat = new Chat($('[data-chat]', panel), { id: 'pq', empty: emptyState('Ask anything about Novus', 'Services, rates, documents, ports or your shipment. I’ll answer in your language.') });
+      if (!panelChat) panelChat = new Chat($('[data-chat]', panel), { id: 'pq', empty: emptyState('Ask anything about Novus Freight', 'Services, cargo types, history, accreditations, contacts or your shipment. I’ll answer in your language.') });
       panel.hidden = false; fab.hidden = true;
       if (q) panelChat.ask(q); else setTimeout(function () { panelChat.input.focus(); }, 60);
     };

@@ -9,7 +9,9 @@
   /* KB-driven blocks (same templates as tools/build.mjs, so they always match the data file) */
   $('#svcGrid').innerHTML = T.servicesHTML(N);
   $('#faqList').innerHTML = T.faqHTML(N);
-  $('#portList').innerHTML = T.portsHTML(N);
+  $('#accGrid').innerHTML = T.accredHTML(N);
+  $('#histList').innerHTML = T.historyHTML(N);
+  $('#valsGrid').innerHTML = T.valuesHTML(N);
   $('#contactList').innerHTML = T.contactHTML(N);
   Array.prototype.forEach.call(document.querySelectorAll('#svcGrid [data-ask]'), function (b) {
     b.addEventListener('click', function () { window.NovusOpen && window.NovusOpen(b.getAttribute('data-ask')); });
@@ -19,9 +21,9 @@
   $('#heroAv').innerHTML = window.NovusIcons.spark;
   $('#heroEngine').innerHTML = window.NovusEngineSwitch.html();
   window.NovusEngineSwitch.wire($('#heroEngine'));
-  var hc = new window.NovusChat($('#heroChat'), { id: 'hq', foot: false, placeholder: 'e.g. Magkano LCL from China?', empty: window.NovusEmpty('Ask anything about Novus', 'Does Novus handle it? How much? What documents? Where is my cargo? Ask in English, Tagalog or Taglish.') });
+  var hc = new window.NovusChat($('#heroChat'), { id: 'hq', foot: false, placeholder: 'e.g. Nag ca-cater ba kayo ng perishable?', empty: window.NovusEmpty('Ask anything about Novus Freight', 'Does Novus handle your cargo? Who are they? Accredited? Where’s my shipment? Ask in English, Tagalog or Taglish, no browsing needed.') });
   // rotating placeholder
-  var ph = ['e.g. Magkano LCL from China?', 'e.g. Do you handle PEZA shipments?', 'e.g. Track NVF-24117', 'e.g. Anong documents para sa customs?', 'e.g. How long by sea to Japan?'], pi = 0;
+  var ph = ['e.g. Nag ca-cater ba kayo ng perishable?', 'e.g. Do you handle PEZA cargo?', 'e.g. Triangular shipment, kaya nyo?', 'e.g. May wing van ba kayo?', 'e.g. Kwento mo naman about Novus'], pi = 0;
   if (!reduce) setInterval(function () { if (document.activeElement !== hc.input) { pi = (pi + 1) % ph.length; hc.input.placeholder = ph[pi]; } }, 3200);
 
   /* hero lanes (no map tiles: projected ports + arcs) */
@@ -66,34 +68,6 @@
     io.observe(document.getElementById('flow'));
   })();
 
-  /* port network diagram */
-  (function net() {
-    var svg = $('#phMap'); if (!svg) return;
-    function P(lon, lat) { return [(lon - 117.5) / 9.5 * 420, (19.5 - lat) / 14 * 520]; }
-    var nodes = [
-      { id: 'mnl', n: 'Manila', c: 'MICP · South Harbor · NAIA', ll: [120.97, 14.6], dx: 12, dy: 4, hub: true },
-      { id: 'sub', n: 'Subic', c: 'Freeport', ll: [120.27, 14.8], dx: -12, dy: 18, anchor: 'end' },
-      { id: 'crk', n: 'Clark', c: 'Air · Freeport', ll: [120.55, 15.18], dx: 10, dy: -14 },
-      { id: 'ceb', n: 'Cebu', c: 'Sea · Air', ll: [123.9, 10.3], dx: 12, dy: 4 },
-      { id: 'dvo', n: 'Davao', c: 'Sea', ll: [125.6, 7.07], dx: -12, dy: 4, anchor: 'end' }
-    ];
-    var g = '<defs><pattern id="dg" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#d9d3c6"/></pattern><radialGradient id="fadeG" cx="50%" cy="50%" r="55%"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><mask id="fadeM"><rect width="420" height="520" fill="url(#fadeG)"/></mask></defs>';
-    g += '<rect width="420" height="520" fill="url(#dg)" mask="url(#fadeM)"/>';
-    var m = P(120.97, 14.6);
-    // international exits
-    g += '<path class="lk" d="M' + m[0] + ' ' + m[1] + ' Q 90 60 40 10"/><text class="c" x="48" y="24">to China, Japan, Korea</text>';
-    g += '<path class="lk" d="M' + m[0] + ' ' + m[1] + ' Q 40 300 10 420"/><text class="c" x="18" y="440">to Singapore, Vietnam</text>';
-    nodes.forEach(function (nd) {
-      if (nd.hub) return; var p = P(nd.ll[0], nd.ll[1]);
-      g += '<path class="lk" d="M' + m[0] + ' ' + m[1] + ' Q ' + ((m[0] + p[0]) / 2 + 30) + ' ' + ((m[1] + p[1]) / 2 - 20) + ' ' + p[0] + ' ' + p[1] + '"/>';
-    });
-    nodes.forEach(function (nd) {
-      var p = P(nd.ll[0], nd.ll[1]), a = nd.anchor ? ' text-anchor="' + nd.anchor + '"' : '';
-      g += '<circle class="pt' + (nd.hub ? ' hub' : '') + '" cx="' + p[0] + '" cy="' + p[1] + '" r="' + (nd.hub ? 7 : 5) + '"/>';
-      g += '<text x="' + (p[0] + nd.dx) + '" y="' + (p[1] + nd.dy) + '"' + a + '>' + nd.n + '</text><text class="c" x="' + (p[0] + nd.dx) + '" y="' + (p[1] + nd.dy + 13) + '"' + a + '>' + nd.c + '</text>';
-    });
-    svg.innerHTML = g;
-  })();
 })();
 
 /* hide the floating launcher while the hero console is on screen (it is the same assistant) */

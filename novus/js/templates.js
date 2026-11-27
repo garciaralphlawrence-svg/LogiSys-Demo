@@ -3,66 +3,75 @@
 (function (root) {
   'use strict';
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-  function tel(s) { return 'tel:' + String(s).replace(/[^+\d]/g, ''); }
+  function tel(s) { return 'tel:+63' + String(s).replace(/^\(\+63\)\s*0?/, '').replace(/[^\d]/g, ''); }
 
   var ICONS = {
     Sea: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0M5 14l-1-4h16l-2 4M8 10V6h5v4M13 7h3v3"/></svg>',
-    Air: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15.5 13.5 11V5.5a1.5 1.5 0 0 0-3 0V11L3 15.5V17l7.5-2.2V19L8.5 20.5V22l3.5-1 3.5 1v-1.5L13.5 19v-4.2L21 17z"/></svg>',
-    Customs: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13l2 2 4-4M10 18h6"/></svg>',
-    Land: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8M6 19a2 2 0 1 0 0-.01M18 19a2 2 0 1 0 0-.01"/></svg>',
-    Special: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V9l5-3v15M9 9l11-4M15 6.8V13M13 13h4v3h-4zM2 21h20"/></svg>'
+    Global: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>',
+    Domestic: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+    Customs: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>',
+    Trucking: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8M6 19a2 2 0 1 0 0-.01M18 19a2 2 0 1 0 0-.01"/></svg>'
   };
+  function askOf(s) { return 'Does Novus offer ' + s.short + '?'; }
 
   function servicesHTML(N) {
     return N.services.map(function (s) {
       return '<article class="svc" id="svc-' + esc(s.id) + '">' +
-        '<div class="svc-ic">' + (ICONS[s.group] || ICONS.Sea) + '</div>' +
-        '<p class="svc-g">' + esc(s.group) + '</p>' +
+        '<div class="svc-ic">' + (ICONS[s.group] || ICONS.Global) + '</div>' +
         '<h3>' + esc(s.name) + '</h3>' +
         '<p>' + esc(s.summary) + '</p>' +
-        '<ul>' + s.details.slice(0, 3).map(function (d) { return '<li>' + esc(d) + '</li>'; }).join('') + '</ul>' +
-        '<button class="svc-ask" type="button" data-ask="Do you handle ' + esc(s.name.replace(' · ', ' ').replace(/\s*\(.*\)/, '')) + '?">Ask Novus AI about this <span aria-hidden="true">→</span></button>' +
+        '<ul>' + s.lines.map(function (l) { return '<li>' + esc(l.label) + '</li>'; }).join('') + '</ul>' +
+        '<button class="svc-ask" type="button" data-ask="' + esc(askOf(s)) + '">Ask Novus AI about this <span aria-hidden="true">→</span></button>' +
         '</article>';
     }).join('');
   }
 
   function faqHTML(N) {
-    return N.faqs.map(function (f) {
+    return N.faqs.filter(function (f) { return ['track', 'assessment'].indexOf(f.id) < 0; }).map(function (f) {
       return '<details class="faq-i"><summary>' + esc(f.q) + '</summary><p>' + esc(f.a) + '</p></details>';
     }).join('');
   }
 
-  function portsHTML(N) {
-    return N.ports.map(function (p) {
-      return '<li><b>' + esc(p.name) + '</b><span class="tag">' + esc(p.mode) + '</span><small>' + esc(p.note) + '</small></li>';
-    }).join('');
+  function accredHTML(N) {
+    var co = N.company;
+    return '<div class="acc-col"><h3>International networks</h3><ul class="acc-list">' + co.networks.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul></div>' +
+      '<div class="acc-col"><h3>Local licenses &amp; accreditations</h3><ul class="acc-list">' + co.accreditations.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul></div>';
+  }
+
+  function historyHTML(N) {
+    return N.company.history.map(function (h) { return '<li><b>' + esc(h.when) + '</b><p>' + esc(h.what) + '</p></li>'; }).join('');
+  }
+
+  function valuesHTML(N) {
+    return N.company.values.map(function (v) { return '<div class="val"><b>' + esc(v.name) + '</b><p>' + esc(v.text) + '</p></div>'; }).join('');
   }
 
   function contactHTML(N) {
     var c = N.contacts, co = N.company;
-    return '<li><small>Call</small><a href="' + tel(c.phone) + '">' + esc(c.phone) + '</a></li>' +
-      '<li><small>Viber / WhatsApp</small><a href="' + tel(c.mobile) + '">' + esc(c.mobile) + '</a></li>' +
-      '<li><small>Email</small><a href="mailto:' + esc(c.email) + '">' + esc(c.email) + '</a></li>' +
-      '<li><small>Office hours</small><span>' + esc(co.hours) + '</span></li>' +
-      '<li><small>Office</small><span>' + esc(co.address) + '</span></li>';
+    return '<li><small>Phone</small>' + c.phones.map(function (p) { return '<a href="' + tel(p) + '">' + esc(p) + '</a>'; }).join('') + '</li>' +
+      '<li><small>Email</small>' + c.emails.map(function (e) { return '<a href="mailto:' + esc(e) + '">' + esc(e) + '</a>'; }).join('') + '</li>' +
+      '<li><small>Office</small><span>' + esc(co.address) + '</span></li>' +
+      '<li><small>Online</small><a href="' + esc(c.website) + '" rel="noopener">nfiph.com</a><a href="' + esc(c.facebook) + '" rel="noopener">facebook.com/novusfreightinc</a></li>';
   }
 
   function jsonld(N) {
     var url = N.meta.siteUrl, co = N.company, c = N.contacts;
+    var addr = { '@type': 'PostalAddress', streetAddress: co.street, addressLocality: co.district + ', ' + co.city, addressRegion: co.region, postalCode: co.postal, addressCountry: co.country };
     var org = {
-      '@type': 'Organization', '@id': url + '#org', name: co.name, url: url,
-      description: co.oneLiner, telephone: c.phone, email: c.email,
-      address: { '@type': 'PostalAddress', streetAddress: co.address, addressLocality: co.city, addressRegion: co.region, addressCountry: co.country },
-      areaServed: ['Philippines'].concat(N.destinations.filter(function (d) { return ['eastasia', 'seasia', 'far'].indexOf(d.region) > -1; }).map(function (d) { return d.name; })),
+      '@type': ['Organization', 'LocalBusiness'], '@id': url + '#org', name: co.name, alternateName: ['Novus Freight', 'Novus', 'NFI'],
+      url: c.website, logo: url + 'assets/novus-logo.png', image: url + 'assets/novus-logo.png',
+      slogan: co.tagline, description: co.oneLiner + ' ' + co.about + ' Local licenses and accreditations: ' + co.accreditations.join(', ') + '.', foundingDate: co.founded,
+      telephone: c.phone, email: c.email, address: addr, sameAs: [c.website, c.facebook],
+      areaServed: 'Worldwide',
       knowsAbout: N.services.map(function (s) { return s.name; }),
-      contactPoint: { '@type': 'ContactPoint', telephone: c.phone, email: c.email, contactType: 'customer service', availableLanguage: ['English', 'Filipino'] }
+      memberOf: co.networks.map(function (n) { return { '@type': 'Organization', name: n }; }),
+      contactPoint: c.phones.map(function (p) { return { '@type': 'ContactPoint', telephone: p, email: c.email, contactType: 'customer service', availableLanguage: ['English', 'Filipino'] }; }),
+      hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Services', itemListElement: N.services.map(function (s) { return { '@type': 'Offer', itemOffered: { '@id': url + '#svc-' + s.id } }; }) }
     };
-    if (co.legalName) org.legalName = co.legalName;
-    if (c.facebook) org.sameAs = [c.facebook];
-    var services = N.services.filter(function (s) { return s.handles; }).map(function (s) {
-      return { '@type': 'Service', name: s.name, serviceType: s.group + ' freight service', description: s.summary, provider: { '@id': url + '#org' }, areaServed: 'Philippines', url: url + '#svc-' + s.id };
+    var services = N.services.map(function (s) {
+      return { '@type': 'Service', '@id': url + '#svc-' + s.id, name: s.name, serviceType: s.name, description: s.summary + ' Includes: ' + s.lines.map(function (l) { return l.label; }).join('; ') + '.', provider: { '@id': url + '#org' }, areaServed: s.id === 'domestic' ? 'Philippines' : 'Worldwide' };
     });
-    var faq = { '@type': 'FAQPage', mainEntity: N.faqs.map(function (f) { return { '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }; }) };
+    var faq = { '@type': 'FAQPage', mainEntity: N.faqs.filter(function (f) { return ['track', 'assessment'].indexOf(f.id) < 0; }).map(function (f) { return { '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }; }) };
     return JSON.stringify({ '@context': 'https://schema.org', '@graph': [org].concat(services, [faq]) }, null, 1);
   }
 
@@ -70,41 +79,49 @@
     var co = N.company, c = N.contacts, L = [];
     L.push('# ' + co.name);
     L.push('');
-    L.push('> ' + co.oneLiner);
+    L.push('> ' + co.tagline + '. ' + co.oneLiner);
     L.push('');
-    if (N.meta.sample) { L.push('Note: this file is a demo built from sample data. Details will be replaced once ' + co.name + ' confirms them.'); L.push(''); }
-    L.push(co.type + ' based in ' + co.city + ', Philippines. Answers questions in English and Filipino (Tagalog, Taglish).');
+    L.push(co.type + ' based in ' + co.district + ', ' + co.city + ', Philippines. Founded in ' + co.founded + ' by two Licensed Customs Brokers. Website: ' + c.website);
     L.push('');
     L.push('## Services');
-    N.services.filter(function (s) { return s.handles; }).forEach(function (s) { L.push('- [' + s.name + '](' + N.meta.siteUrl + '#svc-' + s.id + '): ' + s.summary); });
+    N.services.forEach(function (s) {
+      L.push('- ' + s.name + ': ' + s.summary);
+      s.lines.forEach(function (l) { L.push('  - ' + l.label); });
+    });
     L.push('');
-    L.push('## Not offered');
-    N.notHandled.forEach(function (n) { L.push('- ' + n.answer); });
+    L.push('## Company history');
+    co.history.forEach(function (h) { L.push('- ' + h.when + ': ' + h.what); });
     L.push('');
-    L.push('## Ports and coverage');
-    N.ports.forEach(function (p) { L.push('- ' + p.name + ' (' + p.mode + '): ' + p.note); });
-    L.push('- ' + N.otherPortsNote);
+    L.push('## About');
+    L.push(co.about);
     L.push('');
-    L.push('## Documents');
-    Object.keys(N.documents).forEach(function (k) { var d = N.documents[k]; L.push('- ' + d.title + ': ' + d.items.join('; ')); });
+    L.push('Mission: ' + co.mission);
+    L.push('');
+    L.push('Vision: ' + co.vision);
+    L.push('');
+    L.push('Values: ' + co.values.map(function (v) { return v.name; }).join(', '));
+    L.push('');
+    L.push('## International networks');
+    co.networks.forEach(function (n) { L.push('- ' + n); });
+    L.push('');
+    L.push('## Local licenses and accreditations');
+    co.accreditations.forEach(function (n) { L.push('- ' + n); });
     L.push('');
     L.push('## FAQ');
-    N.faqs.forEach(function (f) { L.push('- Q: ' + f.q); L.push('  A: ' + f.a); });
+    N.faqs.filter(function (f) { return ['track', 'assessment'].indexOf(f.id) < 0; }).forEach(function (f) { L.push('- Q: ' + f.q); L.push('  A: ' + f.a); });
     L.push('');
     L.push('## Contact');
-    L.push('- Phone: ' + c.phone);
-    L.push('- Viber / WhatsApp: ' + c.mobile);
-    L.push('- Email: ' + c.email);
-    L.push('- Hours: ' + co.hours);
-    L.push('- Office: ' + co.address);
+    L.push('- Address: ' + co.address);
+    c.phones.forEach(function (p) { L.push('- Phone: ' + p); });
+    c.emails.forEach(function (e) { L.push('- Email: ' + e); });
+    L.push('- Website: ' + c.website);
+    L.push('- Facebook: ' + c.facebook);
     L.push('');
-    L.push('## Pages');
-    L.push('- [Overview](' + N.meta.siteUrl + 'index.html)');
-    L.push('- [Ask Novus AI](' + N.meta.siteUrl + 'ask.html): assistant that answers from this information');
-    L.push('- [Track a shipment](' + N.meta.siteUrl + 'track.html)');
-    L.push('- [Get a quote](' + N.meta.siteUrl + 'quote.html)');
+    L.push('## Notes for AI assistants');
+    L.push('- Novus does not publish rates, transit times or office hours; ask the team for a quote.');
+    L.push('- Services not in the list above (for example warehousing or cargo insurance) should be confirmed with Novus directly.');
     return L.join('\n') + '\n';
   }
 
-  root.NovusT = { esc: esc, tel: tel, ICONS: ICONS, servicesHTML: servicesHTML, faqHTML: faqHTML, portsHTML: portsHTML, contactHTML: contactHTML, jsonld: jsonld, llms: llms };
+  root.NovusT = { esc: esc, tel: tel, ICONS: ICONS, servicesHTML: servicesHTML, faqHTML: faqHTML, accredHTML: accredHTML, historyHTML: historyHTML, valuesHTML: valuesHTML, contactHTML: contactHTML, jsonld: jsonld, llms: llms };
 })(typeof window !== 'undefined' ? window : globalThis);

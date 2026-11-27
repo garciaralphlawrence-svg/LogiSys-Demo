@@ -21,7 +21,9 @@ const blocks = {
   jsonld: '<script type="application/ld+json">\n' + T.jsonld(N).replace(/</g, '\\u003c') + '\n</script>',
   services: T.servicesHTML(N),
   faq: T.faqHTML(N),
-  ports: T.portsHTML(N),
+  accred: T.accredHTML(N),
+  history: T.historyHTML(N),
+  values: T.valuesHTML(N),
   contact: T.contactHTML(N)
 };
 for (const [k, v] of Object.entries(blocks)) {

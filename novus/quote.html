@@ -4,21 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
-<title>Get a quote · Novus Freight</title>
+<title>Get a quote · Novus Freight Inc.</title>
 <meta name="description" content="Request a freight quote from Novus Freight and see an instant ballpark estimate.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0b1322">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23ff6a2b'/%3E%3Cpath d='M10 22V10l12 12V10' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0a0f44">
+<link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/novus.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/novus.css?v=2">
 </head>
 <body data-page="quote">
 <header class="nav">
-  <a class="brand" href="index.html" aria-label="Novus Freight home">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M10 22V10l12 12V10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span>Novus Freight<small>Placeholder wordmark</small></span>
+  <a class="brand" href="index.html" aria-label="Novus Freight Inc. home">
+    <img class="logo-dark" src="assets/novus-lockup.png" alt="Novus Freight Inc." width="170" height="40"><img class="logo-light" src="assets/novus-lockup-light.png" alt="" width="170" height="40">
   </a>
   <nav class="links" aria-label="Main">
     <a href="index.html">Overview</a>
@@ -40,18 +39,19 @@
 <div class="wrap">
   <section style="padding-top:24px">
     <p class="eyebrow">Get a quote</p>
-    <h1 class="h1" style="margin-top:10px;font-size:clamp(32px,4.4vw,52px)">See a ballpark now.<br>Get the exact rate in writing.</h1>
-    <p class="lead" style="margin-top:12px">Fill in what you know. The estimate updates as you type; Novus confirms the final rate, usually within one working day.</p>
+    <h1 class="h1" style="margin-top:10px;font-size:clamp(32px,4.4vw,52px)">Request a quote<br>from Novus Freight.</h1>
+    <p class="lead" style="margin-top:12px">Fill in what you know and send it to Novus. The panel shows how an instant ballpark would work; in this demo it uses sample market ranges, not Novus’s rates.</p>
   </section>
   <div class="q-grid">
     <form class="card qform" id="qform" novalidate>
       <fieldset>
         <legend>Shipment</legend>
-        <label>Service<select name="svc" id="qSvc"></select></label>
-        <label>Direction<select name="dir"><option>Import</option><option>Export</option><option>Domestic</option></select></label>
+        <label class="full">Service<select name="svc" id="qSvc"></select></label>
+        <label>Direction<select name="dir"><option>Import</option><option>Export</option><option>Domestic</option><option>Foreign to foreign (triangular)</option></select></label>
+        <label>Cargo type<select name="ctype"><option>General cargo</option><option>Perishable cargo</option><option>PEZA cargo</option><option>Breakbulk cargo</option><option>Project cargo</option></select></label>
         <label>Origin<input name="origin" list="places" placeholder="e.g. Shanghai, China"></label>
         <label>Destination<input name="dest" list="places" placeholder="e.g. Manila"></label>
-        <label class="full">What is the cargo?<input name="cargo" placeholder="e.g. Electronics parts, 12 cartons"></label>
+        <label class="full">What is the cargo?<input name="cargo" placeholder="e.g. Frozen seafood, 12 pallets"></label>
       </fieldset>
       <fieldset>
         <legend>Size</legend>
@@ -62,12 +62,11 @@
         </label>
         <label>Containers (FCL)<select name="size"><option value="20">20ft</option><option value="40">40ft / 40HC</option></select></label>
         <label>How many containers<input name="ctn" type="number" min="1" value="1"></label>
-        <label>Incoterm<select name="inco"><option value="">Not sure</option><option>EXW</option><option>FOB</option><option>CFR</option><option>CIF</option><option>DAP</option><option>DDP</option></select></label>
+        <label>Terms<select name="inco"><option value="">Not sure</option><option>CIF</option><option>CFR</option><option>DDP</option><option>DDU</option><option>Other</option></select></label>
         <label>Ready date<input name="ready" type="date"></label>
         <div class="full toggles" style="grid-column:1/-1">
           <label><input type="checkbox" name="customs" checked> Customs clearance</label>
-          <label><input type="checkbox" name="delivery" checked> Delivery to my door</label>
-          <label><input type="checkbox" name="insurance"> Cargo insurance</label>
+          <label><input type="checkbox" name="delivery" checked> Trucking to my door</label>
         </div>
       </fieldset>
       <fieldset>
@@ -84,7 +83,7 @@
       <datalist id="places"></datalist>
     </form>
     <aside class="est" aria-live="polite">
-      <span class="pill">Estimate only</span>
+      <span class="pill">Demo estimate · not Novus’s rates</span>
       <div class="est-num" id="estNum">—</div>
       <p class="est-sub" id="estSub">Choose a service to see a ballpark.</p>
       <ul class="est-lines" id="estLines"></ul>
@@ -95,13 +94,13 @@
 </div>
 </main>
 <footer class="foot">
-  <p>Novus Freight demo platform by Likha Studio, running on Logi-Sys. Company details, rates and shipments are sample data until Novus confirms them.</p>
+  <p>Demo platform for Novus Freight Inc. by Likha Studio, running on Logi-Sys. Company facts are from nfiph.com; shipments, rates and dashboard numbers are sample data.</p>
   <nav aria-label="Footer"><a href="index.html">Overview</a><a href="ask.html">Ask Novus AI</a><a href="track.html">Track</a><a href="quote.html">Quote</a><a href="dashboard.html">Dashboard</a><a href="visibility.html">AI visibility</a></nav>
 </footer>
-<script src="data/novus-kb.js?v=1"></script>
-<script src="js/templates.js?v=1"></script>
-<script src="js/engine.js?v=1"></script>
-<script src="js/site.js?v=1"></script>
-<script src="js/quote.js?v=1"></script>
+<script src="data/novus-kb.js?v=2"></script>
+<script src="js/templates.js?v=2"></script>
+<script src="js/engine.js?v=2"></script>
+<script src="js/site.js?v=2"></script>
+<script src="js/quote.js?v=2"></script>
 </body>
 </html>

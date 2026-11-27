@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
-<title>AI visibility · Novus Freight</title>
+<title>AI visibility · Novus Freight Inc.</title>
 <meta name="description" content="How visible Novus Freight is in AI assistants such as ChatGPT, Gemini, Claude and Perplexity, and what is implemented to improve it.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0b1322">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23ff6a2b'/%3E%3Cpath d='M10 22V10l12 12V10' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0a0f44">
+<link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/novus.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/novus.css?v=2">
 </head>
 <body data-page="visibility">
 <div class="app">
 <aside class="side">
-  <a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M10 22V10l12 12V10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Novus Freight<small>Team console</small></span></a>
+  <a class="brand" href="index.html"><img src="assets/novus-lockup-light.png" alt="Novus Freight Inc." width="150" height="35"></a>
   <nav aria-label="Team">
     <small>Management</small>
     <a href="dashboard.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h6V4H4zM14 20h6v-9h-6zM4 20h6v-3H4zM14 4v3h6V4z"/></svg>Operations</a>
@@ -30,7 +30,7 @@
   </nav>
   <div class="side-foot"><div class="conn-mini"><span class="live-dot"></span><span>Logi-Sys connected<br><small>read-only · sample data</small></span></div><a href="../dashboard.html">← Logi-Sys Growth Dashboard</a><a href="../index.html">← Logi-Sys concept site</a></div>
 </aside>
-<div class="mtop"><a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" style="width:26px;height:26px"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M10 22V10l12 12V10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Novus</span></a><nav aria-label="Team mobile"><a href="dashboard.html">Operations</a><a href="visibility.html" class="on">AI visibility</a><a href="index.html">Website</a></nav></div>
+<div class="mtop"><a class="brand" href="index.html"><img src="assets/novus-lockup-light.png" alt="Novus Freight Inc." width="150" height="35"></a><nav aria-label="Team mobile"><a href="dashboard.html">Operations</a><a href="visibility.html" class="on">AI visibility</a><a href="index.html">Website</a></nav></div>
 <main class="main">
   <header class="top">
     <div><h1>AI visibility</h1><p>Does Novus come up when people ask ChatGPT, Gemini, Claude or Perplexity? <span class="pill sim">Simulated sample</span></p></div>
@@ -38,6 +38,10 @@
   <section class="briefing" aria-label="AI verdict">
     <span class="ai-badge">AI verdict</span>
     <p class="b-main" id="vMain"></p>
+  </section>
+  <section class="card">
+    <div class="c-head"><div><h2>What AI assistants can read on nfiph.com today</h2><p>Checked 27 Nov 2026 by fetching the raw page the way a crawler does</p></div><span class="pill ok">Real check</span></div>
+    <div class="ba" id="ba"></div>
   </section>
   <section class="vis-top">
     <div class="card"><div class="c-head"><div><h2>AI Visibility Score</h2><p>How often Novus is mentioned across test prompts</p></div></div><div class="score" id="score"></div></div>
@@ -56,10 +60,10 @@
   </section>
 </main>
 </div>
-<script src="data/novus-kb.js?v=1"></script>
-<script src="js/templates.js?v=1"></script>
-<script src="js/engine.js?v=1"></script>
-<script src="js/site.js?v=1"></script>
-<script src="js/visibility.js?v=1"></script>
+<script src="data/novus-kb.js?v=2"></script>
+<script src="js/templates.js?v=2"></script>
+<script src="js/engine.js?v=2"></script>
+<script src="js/site.js?v=2"></script>
+<script src="js/visibility.js?v=2"></script>
 </body>
 </html>
