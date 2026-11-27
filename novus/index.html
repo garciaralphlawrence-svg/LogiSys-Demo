@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<title>Novus Freight · Sea, air and customs from the Philippines</title>
+<meta name="description" content="Novus Freight moves cargo by sea, air and land, clears it through the Bureau of Customs and delivers it to your door. Ask Novus AI in English, Tagalog or Taglish.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b1322">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23ff6a2b'/%3E%3Cpath d='M10 22V10l12 12V10' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="alternate" type="text/plain" href="llms.txt" title="llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/novus.css?v=1">
+<!--KB:jsonld--><script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#org",
+   "name": "Novus Freight",
+   "url": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/",
+   "description": "Novus Freight moves cargo by sea, air and land, clears it through the Bureau of Customs and delivers it to your door, across the Philippines and abroad.",
+   "telephone": "+63 2 8555 0100",
+   "email": "hello@novusfreight.example",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Sample address · Port Area, Manila, Philippines",
+    "addressLocality": "Manila",
+    "addressRegion": "Metro Manila",
+    "addressCountry": "PH"
+   },
+   "areaServed": [
+    "Philippines",
+    "Japan",
+    "China",
+    "Hong Kong",
+    "South Korea",
+    "Taiwan",
+    "Singapore",
+    "Vietnam",
+    "Thailand",
+    "Malaysia",
+    "Indonesia",
+    "United States",
+    "Europe",
+    "Australia",
+    "Middle East"
+   ],
+   "knowsAbout": [
+    "Sea freight · FCL",
+    "Sea freight · LCL consolidation",
+    "Air freight",
+    "Customs brokerage (BOC e2m)",
+    "Trucking and delivery",
+    "Warehousing",
+    "Door-to-door",
+    "Project and heavy cargo",
+    "PEZA and ecozone shipments",
+    "Import and export permits"
+   ],
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+63 2 8555 0100",
+    "email": "hello@novusfreight.example",
+    "contactType": "customer service",
+    "availableLanguage": [
+     "English",
+     "Filipino"
+    ]
+   }
+  },
+  {
+   "@type": "Service",
+   "name": "Sea freight · FCL",
+   "serviceType": "Sea freight service",
+   "description": "Full container loads (20ft, 40ft, 40ft high cube and reefer) for import and export, door to door or port to port.",
+   "provider": {
+    "@id": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#org"
+   },
+   "areaServed": "Philippines",
+   "url": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-sea-fcl"
+  },
+  {
+   "@type": "Service",
+   "name": "Sea freight · LCL consolidation",
+   "serviceType": "Sea freight service",
+   "description": "Pay only for the space you use. Your cargo shares a container with other shippers, priced per cubic meter (CBM).",
+   "provider": {
+    "@id": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#org"
+   },
+   "areaServed": "Philippines",
+   "url": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-sea-lcl"
+  },
+  {
+   "@type": "Service",
+   "name": "Air freight",
+   "serviceType": "Air freight service",
+   "description": "Fast import and export by air through NAIA and Clark, priced per chargeable kilogram.",
+   "provider": {
+    "@id": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#org"
+   },
+   "areaServed": "Philippines",
+   "url": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-air"
+  },
+  {
+   "@type": "Service",
+   "name": "Customs brokerage (BOC e2m)",
+   "serviceType": "Customs freight service",
+   "description": "Licensed customs brokers prepare and lodge your import or export entry in BOC e2m, compute duties and taxes and follow it through to release.",
+   "provider": {
+    "@id": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#org"
+   },
+   "areaServed": "Philippines",
+   "url": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-customs"
+  },
+  {
+   "@type": "Service",
+   "name": "Trucking and delivery",
+   "serviceType": "Land freight service",
+   "description": "Container haulage and closed-van trucking from the port or airport to your warehouse, across Luzon and in Cebu and Davao.",
+   "provider": {
+    "@id": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#org"
+   },
+   "areaServed": "Philippines",
+   "url": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-trucking"
+  },
+  {
+   "@type": "Service",
+   "name": "Warehousing",
+   "serviceType": "Land freight service",
+   "description": "Short and long-term storage near the Manila ports, with pallet in and out and inventory reports.",
+   "provider": {
+    "@id": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#org"
+   },
+   "areaServed": "Philippines",
+   "url": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-warehousing"
+  },
+  {
+   "@type": "Service",
+   "name": "Door-to-door",
+   "serviceType": "Land freight service",
+   "description": "One quote, one contact: pickup from your supplier abroad, freight, customs clearance and delivery to your door.",
+   "provider": {
+    "@id": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#org"
+   },
+   "areaServed": "Philippines",
+   "url": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-door-to-door"
+  },
+  {
+   "@type": "Service",
+   "name": "Project and heavy cargo",
+   "serviceType": "Special freight service",
+   "description": "Machinery, oversized and heavy-lift cargo, planned end to end, from flat racks and break-bulk to site delivery.",
+   "provider": {
+    "@id": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#org"
+   },
+   "areaServed": "Philippines",
+   "url": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-project-cargo"
+  },
+  {
+   "@type": "Service",
+   "name": "PEZA and ecozone shipments",
+   "serviceType": "Customs freight service",
+   "description": "Shipments for PEZA and Freeport locators, with the boat note, transfer and ecozone permits handled together with customs.",
+   "provider": {
+    "@id": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#org"
+   },
+   "areaServed": "Philippines",
+   "url": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-peza"
+  },
+  {
+   "@type": "Service",
+   "name": "Import and export permits",
+   "serviceType": "Customs freight service",
+   "description": "We help secure the permits regulated goods need before they ship: FDA, BPI, BFAR, NTC, DTI PS/ICC and similar.",
+   "provider": {
+    "@id": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#org"
+   },
+   "areaServed": "Philippines",
+   "url": "https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-permits"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do you handle small shipments?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Use sea LCL from 1 CBM, or air freight from 45 kg. Many of our clients are SMEs and online sellers importing for the first time."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "I’m importing for the first time. Where do I start?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Send us your supplier’s invoice and packing list. We check if your goods need a permit, register you as an importer with BOC if needed, and give you an all-in quote before anything ships."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can you compute my duties and taxes?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Our brokers compute duties, VAT and other taxes from your invoice and the tariff code before you pay, so there are no surprises at release."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long does customs clearance take?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most complete, green-lane entries clear in 2 to 4 working days after the vessel arrives. Yellow or red lane, missing permits or holds take longer, and we tell you the moment that happens."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does “assessment” or “lane” mean in customs?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "After your entry is lodged, BOC assesses it and assigns a lane. Green lane means no inspection, so it moves straight to duty payment and release. Yellow means a document check; red means a physical exam of the cargo. Novus follows up at every step."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I pay?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We bill per shipment by bank transfer. Credit terms are available for regular accounts after review."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can my cargo be insured?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. We can arrange cargo insurance on request. Ask for it when you request your quote."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do you ship dangerous goods?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, on request, with the proper safety data sheet (MSDS), packing and declaration. Some classes need carrier approval first, so tell us early."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I track my shipment?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Type your Novus tracking number (it starts with NVF-) on the Track page or right here in the chat. You’ll see every step, including the BOC customs steps."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How fast can I get a quote?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You get a ballpark right away on our quote page. A confirmed written quote usually follows within one working day."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script><!--/KB:jsonld-->
+</head>
+<body data-page="overview">
+
+<header class="nav" data-dark="1">
+  <a class="brand" href="index.html" aria-label="Novus Freight home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M10 22V10l12 12V10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Novus Freight<small>Placeholder wordmark</small></span>
+  </a>
+  <nav class="links" aria-label="Main">
+    <a href="index.html" aria-current="page">Overview</a>
+    <a href="ask.html">Ask Novus AI</a>
+    <a href="track.html">Track</a>
+    <a href="quote.html">Get a quote</a>
+    <span class="sep" aria-hidden="true"></span><span class="team">Team</span>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="visibility.html">AI visibility</a>
+  </nav>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+<nav class="mnav" aria-label="Mobile">
+  <a href="index.html">Overview</a><a href="ask.html">Ask Novus AI</a><a href="track.html">Track</a><a href="quote.html">Get a quote</a>
+  <small>For the Novus team</small>
+  <a href="dashboard.html">Dashboard</a><a href="visibility.html">AI visibility</a>
+</nav>
+
+<main>
+<section class="hero">
+  <svg class="hero-lanes" id="heroLanes" viewBox="0 0 800 560" aria-hidden="true"></svg>
+  <div class="wrap hero-in">
+    <div>
+      <p class="eyebrow">Freight forwarder &amp; customs broker · Philippines</p>
+      <h1 class="h1">Ask Novus about<br>your cargo. <em>Get the answer now.</em></h1>
+      <p class="lead" data-kb="company.oneLiner">Novus Freight moves cargo by sea, air and land, clears it through the Bureau of Customs and delivers it to your door.</p>
+      <div class="hero-meta">
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Answers in English, Tagalog or Taglish</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Live tracking with BOC steps</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Instant ballpark quotes</span>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:30px;flex-wrap:wrap">
+        <a class="btn lg" href="quote.html">Get a quote</a>
+        <a class="btn lg ghost" href="track.html" style="color:#fff">Track a shipment</a>
+      </div>
+    </div>
+    <div class="console" id="heroConsole" style="height:min(560px,calc(100svh - 190px));min-height:470px">
+      <div class="console-head" style="color:#fff">
+        <span class="av" style="width:30px;height:30px;border-radius:9px;background:rgba(255,255,255,.08);display:grid;place-items:center" id="heroAv"></span>
+        <div class="grow"><b>Novus AI</b><br><small>Knows Novus’s services, rates, ports and shipments</small></div>
+        <span id="heroEngine"></span>
+      </div>
+      <div id="heroChat" style="flex:1;min-height:0;display:flex;flex-direction:column;background:var(--paper)"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow">What Novus handles</p><h2 class="h2">One team, from booking<br>to your door.</h2></div>
+      <p>Not sure if Novus handles your cargo? Ask Novus AI on any card. You get a straight yes or no, with the details.</p>
+    </div>
+    <div class="svc-grid reveal" id="svcGrid"><!--KB:services--><article class="svc" id="svc-sea-fcl"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0M5 14l-1-4h16l-2 4M8 10V6h5v4M13 7h3v3"/></svg></div><p class="svc-g">Sea</p><h3>Sea freight · FCL</h3><p>Full container loads (20ft, 40ft, 40ft high cube and reefer) for import and export, door to door or port to port.</p><ul><li>Space booking with major shipping lines</li><li>Import and export, Asia, US and Europe lanes</li><li>Container pickup, stuffing and return</li></ul><button class="svc-ask" type="button" data-ask="Do you handle Sea freight FCL?">Ask Novus AI about this <span aria-hidden="true">→</span></button></article><article class="svc" id="svc-sea-lcl"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0M5 14l-1-4h16l-2 4M8 10V6h5v4M13 7h3v3"/></svg></div><p class="svc-g">Sea</p><h3>Sea freight · LCL consolidation</h3><p>Pay only for the space you use. Your cargo shares a container with other shippers, priced per cubic meter (CBM).</p><ul><li>Weekly consolidation from major Asian ports</li><li>Domestic LCL from Manila to Cebu and Davao</li><li>Minimum of 1 CBM</li></ul><button class="svc-ask" type="button" data-ask="Do you handle Sea freight LCL consolidation?">Ask Novus AI about this <span aria-hidden="true">→</span></button></article><article class="svc" id="svc-air"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15.5 13.5 11V5.5a1.5 1.5 0 0 0-3 0V11L3 15.5V17l7.5-2.2V19L8.5 20.5V22l3.5-1 3.5 1v-1.5L13.5 19v-4.2L21 17z"/></svg></div><p class="svc-g">Air</p><h3>Air freight</h3><p>Fast import and export by air through NAIA and Clark, priced per chargeable kilogram.</p><ul><li>Consolidated and direct flights</li><li>Next-flight-out for urgent cargo</li><li>Dangerous goods on request, with proper declaration</li></ul><button class="svc-ask" type="button" data-ask="Do you handle Air freight?">Ask Novus AI about this <span aria-hidden="true">→</span></button></article><article class="svc" id="svc-customs"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13l2 2 4-4M10 18h6"/></svg></div><p class="svc-g">Customs</p><h3>Customs brokerage (BOC e2m)</h3><p>Licensed customs brokers prepare and lodge your import or export entry in BOC e2m, compute duties and taxes and follow it through to release.</p><ul><li>Import and export entries lodged in BOC e2m</li><li>Duty and tax computation before you pay</li><li>Assessment, payment and release follow-up</li></ul><button class="svc-ask" type="button" data-ask="Do you handle Customs brokerage?">Ask Novus AI about this <span aria-hidden="true">→</span></button></article><article class="svc" id="svc-trucking"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8M6 19a2 2 0 1 0 0-.01M18 19a2 2 0 1 0 0-.01"/></svg></div><p class="svc-g">Land</p><h3>Trucking and delivery</h3><p>Container haulage and closed-van trucking from the port or airport to your warehouse, across Luzon and in Cebu and Davao.</p><ul><li>4-wheel and 6-wheel closed vans, 10-wheel wing vans</li><li>20ft and 40ft container trailers</li><li>Port and airport pull-outs</li></ul><button class="svc-ask" type="button" data-ask="Do you handle Trucking and delivery?">Ask Novus AI about this <span aria-hidden="true">→</span></button></article><article class="svc" id="svc-warehousing"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8M6 19a2 2 0 1 0 0-.01M18 19a2 2 0 1 0 0-.01"/></svg></div><p class="svc-g">Land</p><h3>Warehousing</h3><p>Short and long-term storage near the Manila ports, with pallet in and out and inventory reports.</p><ul><li>Pallet storage, billed per pallet per month</li><li>Receiving, put-away and picking</li><li>Monthly inventory report</li></ul><button class="svc-ask" type="button" data-ask="Do you handle Warehousing?">Ask Novus AI about this <span aria-hidden="true">→</span></button></article><article class="svc" id="svc-door-to-door"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8M6 19a2 2 0 1 0 0-.01M18 19a2 2 0 1 0 0-.01"/></svg></div><p class="svc-g">Land</p><h3>Door-to-door</h3><p>One quote, one contact: pickup from your supplier abroad, freight, customs clearance and delivery to your door.</p><ul><li>Supplier pickup through our overseas partners</li><li>Freight by sea or air</li><li>Customs clearance and duties handled</li></ul><button class="svc-ask" type="button" data-ask="Do you handle Door-to-door?">Ask Novus AI about this <span aria-hidden="true">→</span></button></article><article class="svc" id="svc-project-cargo"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V9l5-3v15M9 9l11-4M15 6.8V13M13 13h4v3h-4zM2 21h20"/></svg></div><p class="svc-g">Special</p><h3>Project and heavy cargo</h3><p>Machinery, oversized and heavy-lift cargo, planned end to end, from flat racks and break-bulk to site delivery.</p><ul><li>Route survey and lifting plan</li><li>Flat rack, open top and break-bulk</li><li>Permits and escorts for oversized trucks</li></ul><button class="svc-ask" type="button" data-ask="Do you handle Project and heavy cargo?">Ask Novus AI about this <span aria-hidden="true">→</span></button></article><article class="svc" id="svc-peza"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13l2 2 4-4M10 18h6"/></svg></div><p class="svc-g">Customs</p><h3>PEZA and ecozone shipments</h3><p>Shipments for PEZA and Freeport locators, with the boat note, transfer and ecozone permits handled together with customs.</p><ul><li>Ecozone transfer and boat note processing</li><li>Laguna, Cavite, Batangas and Clark ecozones</li><li>Subic and Clark Freeport shipments</li></ul><button class="svc-ask" type="button" data-ask="Do you handle PEZA and ecozone shipments?">Ask Novus AI about this <span aria-hidden="true">→</span></button></article><article class="svc" id="svc-permits"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13l2 2 4-4M10 18h6"/></svg></div><p class="svc-g">Customs</p><h3>Import and export permits</h3><p>We help secure the permits regulated goods need before they ship: FDA, BPI, BFAR, NTC, DTI PS/ICC and similar.</p><ul><li>Check which agency covers your product</li><li>Prepare and file permit applications</li><li>Follow up until the permit is out</li></ul><button class="svc-ask" type="button" data-ask="Do you handle Import and export permits?">Ask Novus AI about this <span aria-hidden="true">→</span></button></article><!--/KB:services--></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow">How a shipment moves</p><h2 class="h2">Six steps. You see every one.</h2></div>
+      <p>Each step is recorded in Logi-Sys, so Novus AI and the Track page always show where your cargo is, including the Bureau of Customs steps.</p>
+    </div>
+    <div class="flow" id="flow">
+      <div class="flow-step"><i></i><b>Booked</b><p>Space confirmed with the carrier.</p></div>
+      <div class="flow-step"><i></i><b>In transit</b><p>Sailing or flying to the Philippines.</p></div>
+      <div class="flow-step"><i></i><b>Arrived</b><p>Discharged at the port or airport.</p></div>
+      <div class="flow-step boc"><i></i><b>Customs</b><p>Entry lodged in e2m, assessed, duties paid.</p></div>
+      <div class="flow-step boc"><i></i><b>Released</b><p>Gate pass out, truck dispatched.</p></div>
+      <div class="flow-step"><i></i><b>Delivered</b><p>Signed for at your door.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="coverage" style="padding-top:0">
+  <div class="wrap cover">
+    <div class="reveal">
+      <p class="eyebrow">Where Novus works</p>
+      <h2 class="h2" style="margin:10px 0 14px">Philippine gateways, connected to Asia and beyond.</h2>
+      <p class="lead" style="margin-bottom:22px" data-kb="otherPortsNote">Other Philippine ports are handled through partner haulers on request.</p>
+      <ul class="ports" id="portList"><!--KB:ports--><li><b>Manila International Container Port (MICP)</b><span class="tag">Sea</span><small>Main container port for FCL and LCL imports and exports.</small></li><li><b>Port of Manila · South Harbor</b><span class="tag">Sea</span><small>Container and break-bulk cargo, including project cargo.</small></li><li><b>NAIA (Manila airport cargo)</b><span class="tag">Air</span><small>Air import and export.</small></li><li><b>Port of Cebu</b><span class="tag">Sea and air</span><small>Domestic LCL and FCL from Manila, plus international via Cebu.</small></li><li><b>Port of Davao (Sasa)</b><span class="tag">Sea</span><small>Domestic LCL and FCL from Manila, plus international via Davao.</small></li><li><b>Subic Bay Freeport</b><span class="tag">Sea</span><small>Freeport and container cargo for Central and North Luzon.</small></li><li><b>Clark (Freeport and airport)</b><span class="tag">Air</span><small>Air cargo and Freeport locators.</small></li><!--/KB:ports--></ul>
+    </div>
+    <div class="reveal"><svg class="ph-map" id="phMap" viewBox="0 0 420 520" role="img" aria-label="Novus port network in the Philippines (diagram)"></svg></div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><div><p class="eyebrow">Common questions</p><h2 class="h2">Quick answers.</h2></div><p>Novus AI answers these and more, in your language. Ask it anything about Novus.</p></div>
+    <div class="faq-list reveal" id="faqList"><!--KB:faq--><details class="faq-i"><summary>Do you handle small shipments?</summary><p>Yes. Use sea LCL from 1 CBM, or air freight from 45 kg. Many of our clients are SMEs and online sellers importing for the first time.</p></details><details class="faq-i"><summary>I’m importing for the first time. Where do I start?</summary><p>Send us your supplier’s invoice and packing list. We check if your goods need a permit, register you as an importer with BOC if needed, and give you an all-in quote before anything ships.</p></details><details class="faq-i"><summary>Can you compute my duties and taxes?</summary><p>Yes. Our brokers compute duties, VAT and other taxes from your invoice and the tariff code before you pay, so there are no surprises at release.</p></details><details class="faq-i"><summary>How long does customs clearance take?</summary><p>Most complete, green-lane entries clear in 2 to 4 working days after the vessel arrives. Yellow or red lane, missing permits or holds take longer, and we tell you the moment that happens.</p></details><details class="faq-i"><summary>What does “assessment” or “lane” mean in customs?</summary><p>After your entry is lodged, BOC assesses it and assigns a lane. Green lane means no inspection, so it moves straight to duty payment and release. Yellow means a document check; red means a physical exam of the cargo. Novus follows up at every step.</p></details><details class="faq-i"><summary>How do I pay?</summary><p>We bill per shipment by bank transfer. Credit terms are available for regular accounts after review.</p></details><details class="faq-i"><summary>Can my cargo be insured?</summary><p>Yes. We can arrange cargo insurance on request. Ask for it when you request your quote.</p></details><details class="faq-i"><summary>Do you ship dangerous goods?</summary><p>Yes, on request, with the proper safety data sheet (MSDS), packing and declaration. Some classes need carrier approval first, so tell us early.</p></details><details class="faq-i"><summary>How do I track my shipment?</summary><p>Type your Novus tracking number (it starts with NVF-) on the Track page or right here in the chat. You’ll see every step, including the BOC customs steps.</p></details><details class="faq-i"><summary>How fast can I get a quote?</summary><p>You get a ballpark right away on our quote page. A confirmed written quote usually follows within one working day.</p></details><!--/KB:faq--></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0" id="contact">
+  <div class="wrap">
+    <div class="band reveal">
+      <div style="position:relative;z-index:1">
+        <p class="eyebrow">Talk to Novus</p>
+        <h2 class="h2" style="margin:10px 0 14px">Ready to ship?</h2>
+        <p class="lead">Get an instant ballpark online, then a confirmed written quote from the Novus team.</p>
+        <div style="display:flex;gap:10px;margin-top:24px;flex-wrap:wrap"><a class="btn lg" href="quote.html">Get a quote</a><a class="btn lg ghost" href="ask.html" style="color:#fff">Ask Novus AI</a></div>
+      </div>
+      <ul class="contact-list" id="contactList"><!--KB:contact--><li><small>Call</small><a href="tel:+63285550100">+63 2 8555 0100</a></li><li><small>Viber / WhatsApp</small><a href="tel:+639175550100">+63 917 555 0100</a></li><li><small>Email</small><a href="mailto:hello@novusfreight.example">hello@novusfreight.example</a></li><li><small>Office hours</small><span>Monday to Friday, 8:00 AM to 5:00 PM · Saturday 8:00 AM to 12:00 NN</span></li><li><small>Office</small><span>Sample address · Port Area, Manila, Philippines</span></li><!--/KB:contact--></ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div>
+    <a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" style="width:26px;height:26px"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M10 22V10l12 12V10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Novus Freight</span></a>
+    <p style="margin-top:12px">Demo platform prepared by Likha Studio to show what an AI layer on Logi-Sys can do for a freight forwarder. Company details, rates and shipments are sample data until Novus confirms them. <a href="llms.txt">llms.txt</a></p>
+  </div>
+  <div style="display:grid;gap:14px;justify-items:start">
+    <span class="powered"><span class="live-dot"></span>Runs on Logi-Sys data (sample)</span>
+    <nav aria-label="Footer"><a href="ask.html">Ask Novus AI</a><a href="track.html">Track</a><a href="quote.html">Quote</a><a href="dashboard.html">Dashboard</a><a href="visibility.html">AI visibility</a><a href="../index.html">Logi-Sys concept</a></nav>
+  </div>
+</footer>
+
+<script src="data/novus-kb.js?v=1"></script>
+<script src="js/templates.js?v=1"></script>
+<script src="js/engine.js?v=1"></script>
+<script src="js/site.js?v=1"></script>
+<script src="js/overview.js?v=1"></script>
+</body>
+</html>

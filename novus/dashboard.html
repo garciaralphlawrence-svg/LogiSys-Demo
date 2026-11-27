@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<title>Operations dashboard · Novus Freight</title>
+<meta name="description" content="Novus Freight operations dashboard with AI briefing, shipments, customs alerts and Novus AI questions.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b1322">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23ff6a2b'/%3E%3Cpath d='M10 22V10l12 12V10' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/novus.css?v=1">
+</head>
+<body data-page="dashboard">
+<div class="app">
+<aside class="side">
+  <a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M10 22V10l12 12V10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Novus Freight<small>Team console</small></span></a>
+  <nav aria-label="Team">
+    <small>Management</small>
+    <a href="dashboard.html" class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h6V4H4zM14 20h6v-9h-6zM4 20h6v-3H4zM14 4v3h6V4z"/></svg>Operations</a>
+    <a href="visibility.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>AI visibility</a>
+    <small>Customer side</small>
+    <a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>Website</a>
+    <a href="ask.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>Novus AI</a>
+    <a href="track.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>Tracking</a>
+    <a href="quote.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>Quote form</a>
+  </nav>
+  <div class="side-foot"><div class="conn-mini"><span class="live-dot"></span><span>Logi-Sys connected<br><small>read-only · sample data</small></span></div><a href="../dashboard.html">← Logi-Sys Growth Dashboard</a><a href="../index.html">← Logi-Sys concept site</a></div>
+</aside>
+<div class="mtop"><a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" style="width:26px;height:26px"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M10 22V10l12 12V10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Novus</span></a><nav aria-label="Team mobile"><a href="dashboard.html" class="on">Operations</a><a href="visibility.html">AI visibility</a><a href="index.html">Website</a></nav></div>
+<main class="main" id="main">
+  <header class="top">
+    <div><h1>Operations</h1><p>Novus Freight · <span id="dUpd"></span> · <span class="pill sim">Data from Logi-Sys (sample)</span></p></div>
+    <div class="ctrls"><div class="seg" role="group" aria-label="Period"><button data-p="30" class="on">30 days</button><button data-p="90">90 days</button></div></div>
+  </header>
+  <section class="briefing" aria-label="AI briefing">
+    <span class="ai-badge">AI briefing</span>
+    <p class="b-main" id="bMain"></p>
+    <ul class="b-list" id="bList"></ul>
+  </section>
+  <section class="kpis" id="kpis" aria-label="Key numbers"></section>
+  <section class="g2">
+    <div class="card"><div class="c-head"><div><h2>Shipments on the water and in the air</h2><p>Active lanes into the Philippines. Dots are shipments moving now.</p></div><span class="pill sim">Sample</span></div><svg class="lanes-svg" id="lanes" viewBox="0 0 640 360" role="img" aria-label="Lane view of active shipments"></svg></div>
+    <div class="card"><div class="c-head"><div><h2>Customs and BOC alerts</h2><p>Things that need a person today.</p></div></div><ul class="alerts" id="alerts"></ul></div>
+  </section>
+  <section class="card">
+    <div class="c-head"><div><h2>Status pipeline</h2><p>Tap a stage to see the shipments in it.</p></div></div>
+    <div class="stagebar" id="stages"></div>
+    <div class="tbl-wrap"><table class="tbl" id="stageTbl"></table></div>
+  </section>
+  <section class="g3">
+    <div class="card"><div class="c-head"><div><h2>Top lanes</h2><p>Shipments by route</p></div></div><div class="bars" id="lanesBars"></div></div>
+    <div class="card"><div class="c-head"><div><h2>Top customers</h2><p>Revenue, anonymized</p></div></div><div class="bars" id="custBars"></div></div>
+    <div class="card"><div class="c-head"><div><h2>Quote funnel</h2><p>From request to booking</p></div></div><div class="funnel" id="funnel"></div><p class="sim-note" style="margin-top:12px" id="funnelNote"></p></div>
+  </section>
+  <section class="g2b">
+    <div class="card" id="asked">
+      <div class="c-head"><div><h2>What clients asked Novus AI</h2><p>Top questions this period, and the ones it couldn’t answer.</p></div><div class="tabs" role="tablist"><button class="on" data-t="top" role="tab">Top questions</button><button data-t="gap" role="tab">Content gaps</button></div></div>
+      <ul class="qlist" id="qlist"></ul>
+    </div>
+    <div class="card"><div class="c-head"><div><h2>Where leads come from</h2><p>Quote requests by source</p></div></div><div class="donut" id="donut"></div></div>
+  </section>
+  <section class="card conn" id="connection">
+    <div>
+      <div class="c-head" style="margin-bottom:4px"><div><h2>Connection to Logi-Sys</h2><p>How this dashboard gets its numbers</p></div><span class="pill ok"><span class="dot"></span>Read-only</span></div>
+      <div class="conn-flow"><span>Logi-Sys (Novus’s ERP)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg><span>Read-only export / API endpoint</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg><span>Novus AI + this dashboard</span></div>
+      <p style="color:var(--muted);font-size:14px">The live version reads jobs, milestones, customs status, quotes and invoices from Logi-Sys every 15 minutes through a read-only export or API key. It never writes back, so Novus’s records stay the single source of truth. This preview uses sample data.</p>
+    </div>
+    <ul>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Shipments and milestones (Booked to Delivered)</li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Customs entries, lanes and release status</li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Quotes and bookings</li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Invoiced revenue per customer and lane</li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Novus AI chat questions (from the website)</li>
+    </ul>
+  </section>
+</main>
+</div>
+<script src="data/novus-kb.js?v=1"></script>
+<script src="js/templates.js?v=1"></script>
+<script src="js/engine.js?v=1"></script>
+<script src="js/site.js?v=1"></script>
+<script src="js/dashboard.js?v=1"></script>
+</body>
+</html>

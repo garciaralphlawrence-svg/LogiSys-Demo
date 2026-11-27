@@ -24,7 +24,9 @@ a{color:inherit}
 .brand img{height:34px;width:auto;transition:filter .3s}
 .nav:not(.solid) .brand img{filter:brightness(0) invert(1)}
 .links{display:flex;gap:30px;font-size:14px;font-weight:500}
-.links a{text-decoration:none;color:#fff;opacity:.85;transition:opacity .2s}
+.links a{text-decoration:none;color:#fff;opacity:.85;transition:opacity .2s;white-space:nowrap}
+.brand{flex:none}
+@media (max-width:1240px){.links{gap:18px}}
 .links a:hover{opacity:1}
 .nav.solid .links a{color:var(--text)}
 .nav-cta{display:flex;gap:10px;align-items:center}

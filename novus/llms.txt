@@ -1,0 +1,75 @@
+# Novus Freight
+
+> Novus Freight moves cargo by sea, air and land, clears it through the Bureau of Customs and delivers it to your door, across the Philippines and abroad.
+
+Note: this file is a demo built from sample data. Details will be replaced once Novus Freight confirms them.
+
+Freight forwarder and customs broker based in Manila, Philippines. Answers questions in English and Filipino (Tagalog, Taglish).
+
+## Services
+- [Sea freight · FCL](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-sea-fcl): Full container loads (20ft, 40ft, 40ft high cube and reefer) for import and export, door to door or port to port.
+- [Sea freight · LCL consolidation](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-sea-lcl): Pay only for the space you use. Your cargo shares a container with other shippers, priced per cubic meter (CBM).
+- [Air freight](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-air): Fast import and export by air through NAIA and Clark, priced per chargeable kilogram.
+- [Customs brokerage (BOC e2m)](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-customs): Licensed customs brokers prepare and lodge your import or export entry in BOC e2m, compute duties and taxes and follow it through to release.
+- [Trucking and delivery](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-trucking): Container haulage and closed-van trucking from the port or airport to your warehouse, across Luzon and in Cebu and Davao.
+- [Warehousing](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-warehousing): Short and long-term storage near the Manila ports, with pallet in and out and inventory reports.
+- [Door-to-door](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-door-to-door): One quote, one contact: pickup from your supplier abroad, freight, customs clearance and delivery to your door.
+- [Project and heavy cargo](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-project-cargo): Machinery, oversized and heavy-lift cargo, planned end to end, from flat racks and break-bulk to site delivery.
+- [PEZA and ecozone shipments](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-peza): Shipments for PEZA and Freeport locators, with the boat note, transfer and ecozone permits handled together with customs.
+- [Import and export permits](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/#svc-permits): We help secure the permits regulated goods need before they ship: FDA, BPI, BFAR, NTC, DTI PS/ICC and similar.
+
+## Not offered
+- Novus handles cargo, not passenger travel, so we can’t book plane tickets, tours or visas.
+- Novus moves cargo, not money, so we don’t offer remittance or money transfer.
+
+## Ports and coverage
+- Manila International Container Port (MICP) (Sea): Main container port for FCL and LCL imports and exports.
+- Port of Manila · South Harbor (Sea): Container and break-bulk cargo, including project cargo.
+- NAIA (Manila airport cargo) (Air): Air import and export.
+- Port of Cebu (Sea and air): Domestic LCL and FCL from Manila, plus international via Cebu.
+- Port of Davao (Sasa) (Sea): Domestic LCL and FCL from Manila, plus international via Davao.
+- Subic Bay Freeport (Sea): Freeport and container cargo for Central and North Luzon.
+- Clark (Freeport and airport) (Air): Air cargo and Freeport locators.
+- Other Philippine ports are handled through partner haulers on request.
+
+## Documents
+- Sea shipment documents: Commercial invoice; Packing list; Bill of lading (B/L); Import permit, if the goods are regulated; Certificate of origin (for lower duties under trade agreements)
+- Air shipment documents: Commercial invoice; Packing list; Air waybill (AWB); Import permit, if the goods are regulated; MSDS for chemicals or batteries
+- Customs clearance (BOC) documents: Commercial invoice; Packing list; Bill of lading or air waybill; Importer accreditation (BOC Client Profile Registration); TIN of the importer; Permits for regulated goods (FDA, BPI, NTC, etc.); Certificate of origin, if claiming lower duties
+- PEZA / ecozone shipment documents: Commercial invoice; Packing list; Bill of lading or air waybill; PEZA permit / boat note; Locator certificate of registration; Transfer documents for bonded trucking
+- Typical permit requirements: Product details and photos; Company registration (SEC or DTI); Supplier details and invoice; Agency-specific forms (FDA, BPI, BFAR, NTC, DTI); Laboratory or test reports, if required
+
+## FAQ
+- Q: Do you handle small shipments?
+  A: Yes. Use sea LCL from 1 CBM, or air freight from 45 kg. Many of our clients are SMEs and online sellers importing for the first time.
+- Q: I’m importing for the first time. Where do I start?
+  A: Send us your supplier’s invoice and packing list. We check if your goods need a permit, register you as an importer with BOC if needed, and give you an all-in quote before anything ships.
+- Q: Can you compute my duties and taxes?
+  A: Yes. Our brokers compute duties, VAT and other taxes from your invoice and the tariff code before you pay, so there are no surprises at release.
+- Q: How long does customs clearance take?
+  A: Most complete, green-lane entries clear in 2 to 4 working days after the vessel arrives. Yellow or red lane, missing permits or holds take longer, and we tell you the moment that happens.
+- Q: What does “assessment” or “lane” mean in customs?
+  A: After your entry is lodged, BOC assesses it and assigns a lane. Green lane means no inspection, so it moves straight to duty payment and release. Yellow means a document check; red means a physical exam of the cargo. Novus follows up at every step.
+- Q: How do I pay?
+  A: We bill per shipment by bank transfer. Credit terms are available for regular accounts after review.
+- Q: Can my cargo be insured?
+  A: Yes. We can arrange cargo insurance on request. Ask for it when you request your quote.
+- Q: Do you ship dangerous goods?
+  A: Yes, on request, with the proper safety data sheet (MSDS), packing and declaration. Some classes need carrier approval first, so tell us early.
+- Q: How do I track my shipment?
+  A: Type your Novus tracking number (it starts with NVF-) on the Track page or right here in the chat. You’ll see every step, including the BOC customs steps.
+- Q: How fast can I get a quote?
+  A: You get a ballpark right away on our quote page. A confirmed written quote usually follows within one working day.
+
+## Contact
+- Phone: +63 2 8555 0100
+- Viber / WhatsApp: +63 917 555 0100
+- Email: hello@novusfreight.example
+- Hours: Monday to Friday, 8:00 AM to 5:00 PM · Saturday 8:00 AM to 12:00 NN
+- Office: Sample address · Port Area, Manila, Philippines
+
+## Pages
+- [Overview](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/index.html)
+- [Ask Novus AI](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/ask.html): assistant that answers from this information
+- [Track a shipment](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/track.html)
+- [Get a quote](https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/quote.html)

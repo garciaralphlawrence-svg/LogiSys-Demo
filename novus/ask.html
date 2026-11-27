@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<title>Ask Novus AI · Novus Freight</title>
+<meta name="description" content="Ask Novus Freight anything about services, rates, documents, ports and shipments, in English, Tagalog or Taglish.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b1322">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23ff6a2b'/%3E%3Cpath d='M10 22V10l12 12V10' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/novus.css?v=1">
+</head>
+<body data-page="ask">
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="Novus Freight home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M10 22V10l12 12V10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Novus Freight<small>Placeholder wordmark</small></span>
+  </a>
+  <nav class="links" aria-label="Main">
+    <a href="index.html">Overview</a>
+    <a href="ask.html" aria-current="page">Ask Novus AI</a>
+    <a href="track.html">Track</a>
+    <a href="quote.html">Get a quote</a>
+    <span class="sep" aria-hidden="true"></span><span class="team">Team</span>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="visibility.html">AI visibility</a>
+  </nav>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+<nav class="mnav" aria-label="Mobile">
+  <a href="index.html">Overview</a><a href="ask.html" aria-current="page">Ask Novus AI</a><a href="track.html">Track</a><a href="quote.html">Get a quote</a>
+  <small>For the Novus team</small>
+  <a href="dashboard.html">Dashboard</a><a href="visibility.html">AI visibility</a>
+</nav>
+<main class="page">
+<div class="wrap ask-shell">
+  <aside class="ask-side">
+    <div>
+      <p class="eyebrow">Novus AI</p>
+      <h1 style="margin-top:8px">Ask anything about Novus. Skip the browsing.</h1>
+      <p style="margin-top:10px">Services, rates, documents, ports and shipment status, answered in English, Tagalog or Taglish. Every answer shows where it came from.</p>
+    </div>
+    <div class="card">
+      <h3>Try these</h3>
+      <div class="try">
+        <button data-ask="Nag ca-cater ba kayo ng LCL papuntang Cebu?"><small>Taglish</small>Nag ca-cater ba kayo ng LCL papuntang Cebu?</button>
+        <button data-ask="How much for that?"><small>Follow-up (remembers context)</small>How much for that?</button>
+        <button data-ask="Magkano air freight to Japan?"><small>Taglish · estimate</small>Magkano air freight to Japan?</button>
+        <button data-ask="Track NVF-24117"><small>Tracking</small>Track NVF-24117</button>
+        <button data-ask="Anong documents ang kailangan para sa customs?"><small>Tagalog · checklist</small>Anong documents ang kailangan para sa customs?</button>
+        <button data-ask="Can you book me a plane ticket?"><small>Clear “no”</small>Can you book me a plane ticket?</button>
+        <button data-ask="Who won the game last night?"><small>Off-topic · scope limit</small>Who won the game last night?</button>
+        <button data-ask="Kwento mo naman about Novus"><small>Company story</small>Kwento mo naman about Novus</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>What Novus AI knows</h3>
+      <div class="kb-src" id="kbStats"></div>
+      <p style="margin-top:10px;font-size:12.5px">All from one file Novus can update. Questions it can’t answer go to the team dashboard as content gaps.</p>
+    </div>
+  </aside>
+  <section class="ask-main" aria-label="Chat with Novus AI">
+    <div class="panel-head">
+      <span class="av" id="askAv" style="width:32px;height:32px;border-radius:10px;background:rgba(255,255,255,.08);display:grid;place-items:center"></span>
+      <div class="grow"><b>Novus AI</b><small>English · Tagalog · Taglish · answers from Novus’s information only</small></div>
+      <span id="askEngine"></span>
+      <button class="full" id="newChat" type="button" style="font-size:12px;color:#c9d2e0;padding:6px 8px;border-radius:8px">New chat</button>
+    </div>
+    <div id="askChat" style="flex:1;min-height:0;display:flex;flex-direction:column"></div>
+  </section>
+</div>
+</main>
+<script src="data/novus-kb.js?v=1"></script>
+<script src="js/templates.js?v=1"></script>
+<script src="js/engine.js?v=1"></script>
+<script src="js/site.js?v=1"></script>
+<script src="js/ask.js?v=1"></script>
+</body>
+</html>
