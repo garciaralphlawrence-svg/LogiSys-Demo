@@ -214,14 +214,14 @@
         if (!no) {
           out.text = L('Sure. What’s your Novus tracking number? It starts with NVF-.', 'Sige po. Ano po ang tracking number ninyo? Nagsisimula ito sa NVF-.');
           out.chips = N.shipments.slice(0, 3).map(function (s) { return 'Track ' + s.no; });
-          out.source = 'Tracking › Logi-Sys shipment records (sample)';
+          out.source = 'Tracking › Novus shipment records (sample)';
           break;
         }
         var sh = shipment(no);
         if (!sh) {
           out.text = L('I couldn’t find ' + no + ' in the shipment records. Please check the number, or I can connect you to the Novus team.', 'Wala po akong makitang ' + no + ' sa shipment records. Pakicheck po ang number, o ikokonekta ko kayo sa Novus team.');
           out.cards.push({ type: 'handoff' }); out.chips = ['Track NVF-24117', 'Talk to a person'];
-          out.source = 'Tracking › Logi-Sys shipment records (sample)';
+          out.source = 'Tracking › Novus shipment records (sample)';
           break;
         }
         var now = sh.events.filter(function (e) { return e[3] === 'now'; })[0] || sh.events[sh.events.length - 1];
@@ -229,7 +229,7 @@
           'Ang ' + sh.no + ' ay nasa “' + now[0] + '” na: ' + now[2].charAt(0).toLowerCase() + now[2].slice(1) + '. ' + sh.eta + '.');
         out.cards.push({ type: 'track', sh: sh });
         out.chips = sh.stage === 'customs' ? [L('What does assessment mean?', 'Ano ibig sabihin ng assessment?'), 'Talk to a person'] : ['Track another shipment', 'Talk to a person'];
-        out.source = 'Tracking › Logi-Sys shipment ' + sh.no + ' (sample data)';
+        out.source = 'Tracking › Novus shipment ' + sh.no + ' (sample data)';
         break;
       }
       case 'service': {

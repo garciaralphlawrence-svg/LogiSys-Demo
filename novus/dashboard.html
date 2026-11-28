@@ -9,6 +9,17 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0a0f44">
 <link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/novus-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Novus Freight Inc.">
+<meta property="og:title" content="Operations dashboard · Novus Freight Inc.">
+<meta property="og:description" content="Novus Freight operations dashboard with AI briefing, shipments, customs alerts and Novus AI questions.">
+<meta property="og:url" content="https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/dashboard.html">
+<meta property="og:image" content="https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/assets/novus-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://garciaralphlawrence-svg.github.io/LogiSys-Demo/novus/assets/novus-share.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -29,12 +40,12 @@
     <a href="track.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>Tracking</a>
     <a href="quote.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>Quote form</a>
   </nav>
-  <div class="side-foot"><div class="conn-mini"><span class="live-dot"></span><span>Logi-Sys connected<br><small>read-only · sample data</small></span></div><a href="../dashboard.html">← Logi-Sys Growth Dashboard</a><a href="../index.html">← Logi-Sys concept site</a></div>
+  <div class="side-foot"><div class="conn-mini"><span class="live-dot"></span><span>Shipment system connected<br><small>read-only · sample data</small></span></div></div>
 </aside>
 <div class="mtop"><a class="brand" href="index.html"><img src="assets/novus-lockup-light.png" alt="Novus Freight Inc." width="150" height="35"></a><nav aria-label="Team mobile"><a href="dashboard.html" class="on">Operations</a><a href="visibility.html">AI visibility</a><a href="index.html">Website</a></nav></div>
 <main class="main" id="main">
   <header class="top">
-    <div><h1>Operations</h1><p>Novus Freight · <span id="dUpd"></span> · <span class="pill sim">Data from Logi-Sys (sample)</span></p></div>
+    <div><h1>Operations</h1><p>Novus Freight · <span id="dUpd"></span> · <span class="pill sim">Data from Novus’s system (sample)</span></p></div>
     <div class="ctrls"><div class="seg" role="group" aria-label="Period"><button data-p="30" class="on">30 days</button><button data-p="90">90 days</button></div></div>
   </header>
   <section class="briefing" aria-label="AI briefing">
@@ -66,9 +77,9 @@
   </section>
   <section class="card conn" id="connection">
     <div>
-      <div class="c-head" style="margin-bottom:4px"><div><h2>Connection to Logi-Sys</h2><p>How this dashboard gets its numbers</p></div><span class="pill ok"><span class="dot"></span>Read-only</span></div>
-      <div class="conn-flow"><span>Logi-Sys (Novus’s ERP)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg><span>Read-only export / API endpoint</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg><span>Novus AI + this dashboard</span></div>
-      <p style="color:var(--muted);font-size:14px">The live version reads jobs, milestones, customs status, quotes and invoices from Logi-Sys every 15 minutes through a read-only export or API key. It never writes back, so Novus’s records stay the single source of truth. This preview uses sample data.</p>
+      <div class="c-head" style="margin-bottom:4px"><div><h2>Connection to Novus’s system</h2><p>How this dashboard gets its numbers</p></div><span class="pill ok"><span class="dot"></span>Read-only</span></div>
+      <div class="conn-flow"><span>Novus’s ERP</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg><span>Read-only export / API endpoint</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg><span>Novus AI + this dashboard</span></div>
+      <p style="color:var(--muted);font-size:14px">The live version reads jobs, milestones, customs status, quotes and invoices from Novus’s ERP every 15 minutes through a read-only export or API key. It never writes back, so Novus’s records stay the single source of truth. This preview uses sample data.</p>
     </div>
     <ul>
       <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Shipments and milestones (Booked to Delivered)</li>

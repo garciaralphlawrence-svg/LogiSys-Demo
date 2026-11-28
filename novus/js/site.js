@@ -21,8 +21,8 @@
     var rb = document.createElement('div');
     rb.className = 'ribbon'; rb.setAttribute('role', 'note');
     rb.innerHTML = N.meta.sample
-      ? '<b>Demo</b><span>· shipments, rates &amp; dashboard numbers are sample data</span><span class="long">· company facts from nfiph.com · built by Likha Studio on <i>Logi-Sys</i></span>'
-      : '<b>Demo</b><span class="long">· built by Likha Studio on <i>Logi-Sys</i></span>';
+      ? '<b>Demo</b><span>· shipments, rates &amp; dashboard numbers are sample data</span><span class="long">· company facts from nfiph.com · built by Likha Studio</span>'
+      : '<b>Demo</b><span class="long">· built by Likha Studio</span>';
     document.body.insertBefore(rb, document.body.firstChild);
   }
 

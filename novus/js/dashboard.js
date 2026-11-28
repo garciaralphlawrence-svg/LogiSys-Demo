@@ -1,4 +1,4 @@
-/* Novus operations dashboard (sample data shaped like a Logi-Sys export) */
+/* Novus operations dashboard (sample data shaped like an ERP export) */
 (function () {
   'use strict';
   var esc = window.NovusT.esc, STAGES = window.NovusUtil.STAGES;
@@ -9,7 +9,7 @@
   var seed = 7; function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
   function money(n) { return n >= 1e6 ? '₱' + (n / 1e6).toFixed(2) + 'M' : '₱' + Math.round(n / 1000) + 'k'; }
 
-  /* ---------- sample dataset (as if read from Logi-Sys) ---------- */
+  /* ---------- sample dataset (as if read from Novus’s ERP) ---------- */
   var D = {
     30: {
       kpi: [['Active shipments', 142, '', '+9 vs last 30d', 'up'], ['On time', 94.2, '%', '+1.6 pts', 'up'], ['In customs', 23, '', '3 on hold', 'down'], ['Revenue this month', 8420000, 'peso', '+12%', 'up'], ['Quotes pending', 31, '', '9 older than 3 days', 'down'], ['Avg clearance', 2.8, ' days', '−0.4 days', 'up']],
@@ -52,7 +52,7 @@
   };
 
   var period = 30;
-  $('#dUpd').textContent = 'Synced from Logi-Sys at 9:15 AM (sample)';
+  $('#dUpd').textContent = 'Synced from Novus’s system at 9:15 AM (sample)';
 
   function spark(up) {
     var pts = [], v = 50; for (var i = 0; i < 14; i++) { v += (rnd() - (up ? 0.38 : 0.6)) * 14; v = Math.max(8, Math.min(92, v)); pts.push(v); }
